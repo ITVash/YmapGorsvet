@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект для [Донецкгорсвет](http://gorsvet062.000webhostapp.com)
 
 ## Available Scripts
 
