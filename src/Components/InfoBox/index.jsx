@@ -63,7 +63,7 @@ const InfoBox = (props) => {
         <center><h3>Информация</h3></center>
         <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Поставщик контактора К1</label>
+            <label htmlFor="">Поставщик К1</label>
             <Input value={props.items.postavchik_K1} />
           </div>
           <div className="info-box__content_sugo-item">
@@ -79,7 +79,7 @@ const InfoBox = (props) => {
             <Input value={props.items.life_Time_k1} />
           </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Поставщик контактора К2</label>
+            <label htmlFor="">Поставщик К2</label>
             <Input value={props.items.postavchik_K2} />
           </div>
           <div className="info-box__content_sugo-item">
