@@ -19,7 +19,7 @@ const InfoBox = (props) => {
       <span className="info-box__close" onClick={
         () => {
           const wind = document.querySelector(".info-box");
-          wind.classList.toggle("open");
+          wind.classList.remove("open");
         }
       }><Icon type="close" /></span>
       <div className="info-box__title">

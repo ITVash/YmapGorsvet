@@ -14,13 +14,11 @@
   overflow-y: auto;
   box-sizing: content-box;
   transition: all .5s linear;
-  transform: translateY(100px);
-  filter: opacity(0);
+  transform: translateY(100%);
+  opacity: 0;
   &.open {
-    //display: none !important;
-    //visibility: hidden !important;
     transform: translateY(0);
-    filter: opacity(1);
+    opacity: 1;
   }
   &__close {
     cursor: pointer;
