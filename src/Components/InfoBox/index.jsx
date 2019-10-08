@@ -31,7 +31,7 @@ const InfoBox = (props) => {
         <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item">
             <label htmlFor="">СУГО, старт</label>
-            <Input value={props.items.sugo_name} />
+            <Input value={props.items.sugo} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Счетчик</label>
@@ -118,13 +118,16 @@ const InfoBox = (props) => {
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Тип вкл. устройства</label>
-            <Input value={
-              props.items.kontaktor1 ? props.items.kontaktor1_name : 
-              props.items.kontaktor2 ? props.items.kontaktor2_name : null
-            } />
+            <Input value={props.items.sugo_name} />
           </div>
-          <div className="info-box__content_sugo-item"><label htmlFor="">Text</label><Input></Input></div>
-          <div className="info-box__content_sugo-item"><label htmlFor="">Text</label><Input></Input></div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Дата установки</label>
+            <Input value={props.items.date_Sugo} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Срок службы</label>
+            <Input value={props.items.life_Time_Sugo} />
+          </div>
         </div>
       </div>
     </div>
