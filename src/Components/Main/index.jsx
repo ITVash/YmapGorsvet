@@ -1,10 +1,9 @@
 import React from 'react'
+import { Maps, AuthHoc } from '../../Container'
 
-const Main = () => {
+const Main = (props) => {
   return (
-    <div>
-      
-    </div>
+    <Maps {...props} />
   )
 }
 

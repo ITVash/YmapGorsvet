@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from 'antd';
+import { Icon, Input } from 'antd';
 import './style.scss';
 const InfoBox = (props) => {
   console.log("Это для информации", props);
@@ -27,60 +27,39 @@ const InfoBox = (props) => {
         <span>{area[props.items.areaID]}</span>
       </div>
       <div className="info-box__content">
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
-        <h3>Комплектация</h3>
+        <center><h3>Комплектация</h3></center>
+        <div className="info-box__content_sugo">
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">СУГО, старт</label>
+            <Input value={props.items.sugo_name} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Счетчик</label>
+            <Input value={props.items.shetchik_name} />
+          </div>
+        </div>
+        <div className="info-box__content_sugo">
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Контактор</label>
+            <Input value={props.items.kontaktor1_name} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Контактор</label>
+            <Input value={props.items.kontaktor2_name} />
+          </div>
+        </div>
+        <center><h4>Предохранители</h4></center>
+        <div className="info-box__content_sugo pr">
+          <div className="info-box__content_sugo-item"><span className={props.items.breac1 && "tr"}>1</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac2 && "tr"}>2</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac3 && "tr"}>3</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac4 && "tr"}>4</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac5 && "tr"}>5</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac6 && "tr"}>6</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac7 && "tr"}>7</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac8 && "tr"}>8</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac9 && "tr"}>9</span></div>
+        </div>
       </div>
     </div>
   )

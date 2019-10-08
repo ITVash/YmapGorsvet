@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import { YMaps, Map, Placemark, GeoObject } from 'react-yandex-maps';
 import { InfoBox } from '../../Components';
 
 import './style.scss';
@@ -33,6 +33,26 @@ const Ymap = (props) => {
           iconImageOffset: [0, 0],
         }}
         />)}
+        <GeoObject 
+          // The geometry description.
+          geometry={{
+            type: 'Point',
+            coordinates: [48.015875, 37.801341],
+          }}
+          // Properties.
+          properties={{
+            // The placemark content.
+            iconContent: 'Я тащусь',
+            hintContent: 'Ну давай уже тащи',
+          }}
+          // Options.
+          options={{
+            // The placemark's icon will stretch to fit its contents.
+            preset: 'islands#blackStretchyIcon',
+            // The placemark can be moved.
+            draggable: true,
+          }}
+        />
         {setCoup && (
           <InfoBox items={setCoup} />
         )}
