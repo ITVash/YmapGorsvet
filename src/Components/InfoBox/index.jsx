@@ -118,7 +118,10 @@ const InfoBox = (props) => {
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Тип вкл. устройства</label>
-            <Input value={props.items.postavchik_Sugo} />
+            <Input value={
+              props.items.kontaktor1 ? props.items.kontaktor1_name : 
+              props.items.kontaktor2 ? props.items.kontaktor2_name : null
+            } />
           </div>
           <div className="info-box__content_sugo-item"><label htmlFor="">Text</label><Input></Input></div>
           <div className="info-box__content_sugo-item"><label htmlFor="">Text</label><Input></Input></div>
