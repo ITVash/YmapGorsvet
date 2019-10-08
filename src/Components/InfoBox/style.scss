@@ -73,15 +73,27 @@
     &_sugo {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       margin-bottom: 10px;
       justify-content: space-between;
+      &.kont {
+        span {
+          width: 100%;
+          text-align: center;
+        }
+      }
       &.pr {
         display: flex;
         text-align: center;
         justify-content:center;
+        flex-wrap: nowrap;
       }
       &-item {
         width: 49%;
+        margin-bottom: 10px;
+        label {
+          font-size: 12px;
+        }
         span {
           background: #4F4F4F;
           display: block;

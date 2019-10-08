@@ -38,27 +38,62 @@ const InfoBox = (props) => {
             <Input value={props.items.shetchik_name} />
           </div>
         </div>
+        <div className="info-box__content_sugo kont">
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Контактор</label>
+            <span className={props.items.kontaktor1 ? "tr" : null}>{props.items.kontaktor1 ? "Есть" : "Нет"}</span>
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Контактор</label>
+            <span className={props.items.kontaktor2 ? "tr" : null}>{props.items.kontaktor2 ? "Есть" : "Нет"}</span>
+          </div>
+        </div>
+        <center><h4>Предохранители</h4></center>
+        <div className="info-box__content_sugo pr">
+          <div className="info-box__content_sugo-item"><span className={props.items.breac1 ? "tr" : null}>1</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac2 ? "tr" : null}>2</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac3 ? "tr" : null}>3</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac4 ? "tr" : null}>4</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac5 ? "tr" : null}>5</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac6 ? "tr" : null}>6</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac7 ? "tr" : null}>7</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac8 ? "tr" : null}>8</span></div>
+          <div className="info-box__content_sugo-item"><span className={props.items.breac9 ? "tr" : null}>9</span></div>
+        </div>
+        <center><h3>Информация</h3></center>
         <div className="info-box__content_sugo">
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Поставщик контактора</label>
+            <Input value={props.items.postavchik_K1} />
+          </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Контактор</label>
             <Input value={props.items.kontaktor1_name} />
           </div>
           <div className="info-box__content_sugo-item">
+            <label htmlFor="">Дата установки</label>
+            <Input value={props.items.date_K1} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Срок службы</label>
+            <Input value={props.items.life_Time_k1} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Поставщик контактора</label>
+            <Input value={props.items.postavchik_K2} />
+          </div>
+          <div className="info-box__content_sugo-item">
             <label htmlFor="">Контактор</label>
             <Input value={props.items.kontaktor2_name} />
           </div>
-        </div>
-        <center><h4>Предохранители</h4></center>
-        <div className="info-box__content_sugo pr">
-          <div className="info-box__content_sugo-item"><span className={props.items.breac1 && "tr"}>1</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac2 && "tr"}>2</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac3 && "tr"}>3</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac4 && "tr"}>4</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac5 && "tr"}>5</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac6 && "tr"}>6</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac7 && "tr"}>7</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac8 && "tr"}>8</span></div>
-          <div className="info-box__content_sugo-item"><span className={props.items.breac9 && "tr"}>9</span></div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Дата установки</label>
+            <Input value={props.items.date_K2} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Срок службы</label>
+            <Input value={props.items.life_Time_k2} />
+          </div>
         </div>
       </div>
     </div>
