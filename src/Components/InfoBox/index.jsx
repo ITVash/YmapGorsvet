@@ -1,5 +1,5 @@
-import React from 'react'
-import { Icon, Input } from 'antd';
+import React, { useState } from 'react'
+import { Icon, Input, Form } from 'antd';
 import './style.scss';
 const InfoBox = (props) => {
   console.log("Это для информации", props);
@@ -14,6 +14,15 @@ const InfoBox = (props) => {
     8: "Буденовском районе",
     9:  "Пролетарском районе"
   }
+  const handle = () => {
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+
+      }
+    });
+  };
+  const [values, setValues] = useState('');
   return (
     <div className="info-box">
       <span className="info-box__close" onClick={
@@ -21,7 +30,7 @@ const InfoBox = (props) => {
           const wind = document.querySelector(".info-box");
           wind.classList.remove("open");
         }
-      }><Icon type="close" /></span>
+      }><Icon type="close" /></span>      
       <div className="info-box__title">
         <h3>{props.items.title}</h3>
         <span>{area[props.items.areaID]}</span>
@@ -31,11 +40,11 @@ const InfoBox = (props) => {
         <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item">
             <label htmlFor="">СУГО, старт</label>
-            <Input value={props.items.sugo} />
+            <Input name="sugo" value={props.items.sugo} onChange={e => props.uppCoup({"sugo" : e.target.value})} onPressEnter={e => props.uppCoup({"sugo": e.target.value})} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Счетчик</label>
-            <Input value={props.items.shetchik_name} />
+            <Input name="shetchik_name" value={props.items.shetchik_name} onChange={e => {return props.uppCoup({"shetchik_name": e.target.value})}} onPressEnter={e => props.uppCoup({"shetchik_name": e.target.value})} />
           </div>
         </div>
         <div className="info-box__content_sugo kont">

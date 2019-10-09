@@ -5,6 +5,10 @@ const actions = {
     type: 'GET_COUP',
     payload: items
   }),
+  getUppCoup: items => ({
+    type: 'UPP_COUP',
+    payload: items
+  }),
   getCurrentID: id => ({
     type: 'GET_GURRENT_ID',
     payload: id

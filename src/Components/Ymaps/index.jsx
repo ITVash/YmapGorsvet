@@ -10,11 +10,11 @@ const mapData = {
   zoom: 12,
 };
 const Ymap = (props) => {
-  const { coups, onSelectCoup } = props;
+  const { coups, onSelectCoup, uppCoup } = props;
   const [ setCoup, setSelectCoup ] = useState(null);
   console.log("hernja", props);
   return (
-    <YMaps>
+    <YMaps onApiAvaliable={ymaps => console.log('Maps', ymaps)}>
       <Map defaultState={mapData} width="100%" height="100vh">
         {coups.map(item => <Placemark key={item.ID} geometry={[item.pos.lat, item.pos.lng]} 
           onClick={() => {setSelectCoup(item); onSelectCoup(item.ID); 
@@ -25,7 +25,7 @@ const Ymap = (props) => {
           // Options. You must specify this type of layout.
           iconLayout: 'default#image',
           // Custom image for the placemark icon.
-          iconImageHref: "./img/control.png",
+          iconImageHref: `./img/${item.areaID}_control_${item.func}.png`,
           // The size of the placemark.
           iconImageSize: [20, 20],
           // The offset of the upper left corner of the icon relative
@@ -54,7 +54,7 @@ const Ymap = (props) => {
           }}
         />
         {setCoup && (
-          <InfoBox items={setCoup} />
+          <InfoBox items={setCoup} uppCoup={ uppCoup } />
         )}
       </Map>
     </YMaps>

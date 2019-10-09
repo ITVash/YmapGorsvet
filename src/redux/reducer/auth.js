@@ -3,7 +3,8 @@ const initialState = {
     login: 'Vash',
     email: 'vash_dn@mail.ru'
   }],
-  logIn: false
+  logIn: false,
+  accessLevel: 5
 };
 
 export default (state = initialState, {type, payload}) => {
