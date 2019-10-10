@@ -13,15 +13,12 @@ const InfoBox = (props) => {
     8: "Буденовском районе",
     9:  "Пролетарском районе"
   }
-  
-  const [values, setValues] = useState('');
-  const handleChange = e => {   
-    setValues(e.target.value);
-  };
-  //console.log('values', values);
+  const [valuesCoup, setValuesCoup] = useState('');
   useEffect(() => {
-    setValues(props.items);
-  }, []);
+    setValuesCoup(props.items);
+  }, [props.items]);
+  window.valuesCoup = valuesCoup;
+  console.log('values-coups', ( valuesCoup));
   return (
     <div className="info-box">
       <span className="info-box__close" onClick={
@@ -37,6 +34,14 @@ const InfoBox = (props) => {
       <div className="info-box__content">
         <center><h3>Комплектация</h3></center>
         <div className="info-box__content_sugo">
+        <div className="info-box__content_sugo-item">
+            <label htmlFor="">СУГО, стартTest</label>
+            <Input name="sugo" value={ valuesCoup.sugo } onChange={e => setValuesCoup({...valuesCoup, sugo : e.target.value})} onPressEnter={e => props.uppCoup({"sugo": e.target.value})} />
+          </div>
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">СчетчикTest</label>
+            <Input name="shetchik_name" value={ valuesCoup.shetchik_name } onChange={e => setValuesCoup({...valuesCoup, shetchik_name : e.target.value})} onPressEnter={e => props.uppCoup({"shetchik_name": e.target.value})} />
+          </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">СУГО, старт</label>
             <Input name="sugo" value={props.items.sugo} onChange={e => props.uppCoup({"sugo": e.target.value})} onPressEnter={e => props.uppCoup({"sugo": e.target.value})} />
