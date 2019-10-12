@@ -190,8 +190,8 @@ const InfoBox = (props) => {
               onClick={ () => {editItems({...items, func : items.func === 1 ? 0 : 1})}}
             >{items.func === 1 ? "В работе" : "Не исправность"}</span>
           </div>
-          <div className="info-box__content_sugo-item but">
-            <Button onClick={ () => {uppCoup(items)}}>Сохранить</Button>
+          <div className="info-box__content_sugo-item full">
+            <Button type="primary" block onClick={ () => {uppCoup(items)}}>Сохранить</Button>
           </div>
         </div>
       </div>

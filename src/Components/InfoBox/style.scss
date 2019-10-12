@@ -89,6 +89,13 @@
       &-item {
         width: 49%;
         margin-bottom: 10px;
+        &.full {
+          width: 100%;
+          span {
+            width: 100%;
+            background: transparent;
+          }
+        }
         & span.but-item {
           cursor: pointer;
           text-align: center;
