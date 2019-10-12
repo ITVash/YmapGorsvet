@@ -28,4 +28,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.ant-calendar-picker-container {
+  z-index: 9999;
+}
 

@@ -53,7 +53,10 @@ const Ymap = (props) => {
           }}
         />
         {setCoup && (
-          <InfoBox items={setCoup} uppCoup={ uppCoup } />
+          <InfoBox 
+            items={ setCoup }
+            editItems={ setSelectCoup }
+            uppCoup={ uppCoup } />
         )}
       </Map>
     </YMaps>

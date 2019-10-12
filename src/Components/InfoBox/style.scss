@@ -1,7 +1,7 @@
 .info-box {
   position: absolute;
   width: 300px;
-  z-index: 9999;
+  z-index: 1000;
   //height: call(100vh - 50px);
   background-color: rgb(235, 235, 235);
   left: 10px;
@@ -89,6 +89,27 @@
       &-item {
         width: 49%;
         margin-bottom: 10px;
+        & span.but-item {
+          cursor: pointer;
+          text-align: center;
+          height: 35px;
+          width: 100%;
+          border-radius: 4px;
+          background: #F2994A;
+          color: #ffffff;
+          &.err {
+            background: #D63F3F;
+          }
+        }
+        &.but {
+          width: 100%;
+        }
+        &.textarea {
+          width: 100%;
+        }
+        span.date {
+          width: 100%;
+        }
         label {
           font-size: 12px;
         }

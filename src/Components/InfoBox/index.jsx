@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Icon, Input } from 'antd';
+import React from 'react'
+import { Icon, Input, DatePicker, Button } from 'antd';
+import moment from 'moment';
+
 import './style.scss';
 const InfoBox = (props) => {
   const area = {
@@ -12,13 +14,12 @@ const InfoBox = (props) => {
     7: "Петровском районе",
     8: "Буденовском районе",
     9:  "Пролетарском районе"
-  }
-  const [valuesCoup, setValuesCoup] = useState('');
-  useEffect(() => {
-    setValuesCoup(props.items);
-  }, [props.items]);
-  window.valuesCoup = valuesCoup;
-  console.log('values-coups', ( valuesCoup));
+  };
+  const dateFormat = 'DD.MM.YYYY';
+
+  window.valuesCoup = props.items;
+  window.editValuesCoup = props.editItems;
+  const { items, uppCoup, editItems } = props;
   return (
     <div className="info-box">
       <span className="info-box__close" onClick={
@@ -34,21 +35,15 @@ const InfoBox = (props) => {
       <div className="info-box__content">
         <center><h3>Комплектация</h3></center>
         <div className="info-box__content_sugo">
-        <div className="info-box__content_sugo-item">
-            <label htmlFor="">СУГО, стартTest</label>
-            <Input name="sugo" value={ valuesCoup.sugo } onChange={e => setValuesCoup({...valuesCoup, sugo : e.target.value})} onPressEnter={e => props.uppCoup({"sugo": e.target.value})} />
-          </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">СчетчикTest</label>
-            <Input name="shetchik_name" value={ valuesCoup.shetchik_name } onChange={e => setValuesCoup({...valuesCoup, shetchik_name : e.target.value})} onPressEnter={e => props.uppCoup({"shetchik_name": e.target.value})} />
-          </div>
-          <div className="info-box__content_sugo-item">
-            <label htmlFor="">СУГО, старт</label>
-            <Input name="sugo" value={props.items.sugo} onChange={e => props.uppCoup({"sugo": e.target.value})} onPressEnter={e => props.uppCoup({"sugo": e.target.value})} />
+            <label htmlFor="">Вкл. Устройство</label>
+            <Input name="sugo" 
+              value={items.sugo} onChange={e => editItems({...items, sugo : e.target.value})} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Счетчик</label>
-            <Input name="shetchik_name" value={props.items.shetchik_name } onChange={e => props.uppCoup({"shetchik_name": e.target.value})} onPressEnter={e => props.uppCoup({"shetchik_name": e.target.value})} />
+            <Input name="shetchik_name" 
+              value={items.shetchik_name } onChange={e => editItems({...items, shetchik_name : e.target.value})} />
           </div>
         </div>
         <div className="info-box__content_sugo kont">
@@ -64,100 +59,139 @@ const InfoBox = (props) => {
         <center><h4>Предохранители</h4></center>
         <div className="info-box__content_sugo pr">
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 1}); return console.log('Первая кнопка', props.items.breac1)
-          }} className={props.items.breac1 ? "tr" : null}>1</span></div>
+            editItems({...items, breac1 : !items.breac1}); return console.log('Первая кнопка', items.breac1)
+          }} className={items.breac1 ? "tr" : null}>1</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 2}); return console.log('Вторая кнопка', props.items.breac2)
-          }} className={props.items.breac2 ? "tr" : null}>2</span></div>
+            editItems({...items, breac2 : !items.breac2}); return console.log('Вторая кнопка', items.breac2)
+          }} className={items.breac2 ? "tr" : null}>2</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 3})
-          }} className={props.items.breac3 ? "tr" : null}>3</span></div>
+            editItems({...items, breac3 : !items.breac3})
+          }} className={items.breac3 ? "tr" : null}>3</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 4})
-          }} className={props.items.breac4 ? "tr" : null}>4</span></div>
+            editItems({...items, breac4 : !items.breac4})
+          }} className={items.breac4 ? "tr" : null}>4</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 5})
-          }} className={props.items.breac5 ? "tr" : null}>5</span></div>
+            editItems({...items, breac5 : !items.breac5})
+          }} className={items.breac5 ? "tr" : null}>5</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 6})
-          }} className={props.items.breac6 ? "tr" : null}>6</span></div>
+            editItems({...items, breac6 : !items.breac6})
+          }} className={items.breac6 ? "tr" : null}>6</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 7})
-          }} className={props.items.breac7 ? "tr" : null}>7</span></div>
+            editItems({...items, breac7 : !items.breac7})
+          }} className={items.breac7 ? "tr" : null}>7</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 8})
-          }} className={props.items.breac8 ? "tr" : null}>8</span></div>
+            editItems({...items, breac8 : !items.breac8})
+          }} className={items.breac8 ? "tr" : null}>8</span></div>
           <div className="info-box__content_sugo-item"><span onClick={() => {
-            props.uppCoup({"breac": 9})
-          }} className={props.items.breac9 ? "tr" : null}>9</span></div>
+            editItems({...items, breac9 : !items.breac9})
+          }} className={items.breac9 ? "tr" : null}>9</span></div>
         </div>
-        <center><h3>Информация</h3></center>
+        <center><h3>K1</h3></center>
         <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Поставщик К1</label>
-            <Input value={props.items.postavchik_K1} />
+            <label htmlFor="">Поставщик</label>
+            <Input value={items.postavchik_K1}
+              onChange={ e => {editItems({...items, postavchik_K1 : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Тип К1</label>
-            <Input value={props.items.kontaktor1_name} />
+            <label htmlFor="">Контактор</label>
+            <Input value={items.kontaktor1_name} 
+              onChange={ e => {editItems({...items, kontaktor1_name : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Дата установки</label>
-            <Input value={props.items.date_K1} />
+            <DatePicker className='date' defaultValue={moment(items.date_K1, dateFormat)} format={dateFormat}
+              onChange={(date, newDate)=> {editItems({...items, date_K1 : newDate})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Срок службы</label>
-            <Input value={props.items.life_Time_k1} />
+            <Input value={items.life_Time_k1}
+              onChange={ e => {editItems({...items, life_Time_k1 : e.target.value})}} />
+          </div>
+        </div>
+        <center><h3>K2</h3></center>
+        <div className="info-box__content_sugo">
+          <div className="info-box__content_sugo-item">
+            <label htmlFor="">Поставщик</label>
+            <Input value={items.postavchik_K2}
+              onChange={ e => {editItems({...items, postavchik_K2 : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Поставщик К2</label>
-            <Input value={props.items.postavchik_K2} />
-          </div>
-          <div className="info-box__content_sugo-item">
-            <label htmlFor="">Тип К2</label>
-            <Input value={props.items.kontaktor2_name} />
+            <label htmlFor="">Тип</label>
+            <Input value={items.kontaktor2_name}
+              onChange={ e => {editItems({...items, kontaktor2_name : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Дата установки</label>
-            <Input value={props.items.date_K2} />
+            <DatePicker className='date' defaultValue={moment(items.date_K2, dateFormat)} format={dateFormat}
+              onChange={(date, newDate)=> {editItems({...items, date_K2 : newDate})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Срок службы</label>
-            <Input value={props.items.life_Time_k2} />
+            <Input value={items.life_Time_k2}
+              onChange={ e => {editItems({...items, life_Time_k2 : e.target.value})}} />
           </div>
         </div>
+        <center><h3>Счетчик</h3></center>
         <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Поставщик счетчика</label>
-            <Input value={props.items.postavchik_Shethika} />
+            <label htmlFor="">Поставщик</label>
+            <Input value={items.postavchik_Shethika}
+              onChange={ e => {editItems({...items, postavchik_Shethika : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Тип счетчика</label>
-            <Input value={props.items.shetchik_name} />
+            <Input value={items.shetchik_name}
+              onChange={ e => {editItems({...items, shetchik_name : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Дата установки</label>
-            <Input value={props.items.date_Shetchika} />
+            <DatePicker className='date' defaultValue={moment(items.date_Shetchika, dateFormat)} format={dateFormat}
+              onChange={(date, newDate)=> {editItems({...items, date_Shetchika : newDate})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Срок службы</label>
-            <Input value={props.items.life_Time_Shethcika} />
+            <Input value={items.life_Time_Shethcika} />
           </div>
+        </div>
+        <center><h3>Включающие устройство</h3></center>
+        <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Поставщик СУГО, старт</label>
-            <Input value={props.items.postavchik_Sugo} />
+            <label htmlFor="">Поставщик</label>
+            <Input value={items.postavchik_Sugo}
+              onChange={ e => {editItems({...items, postavchik_Sugo : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Тип вкл. устройства</label>
-            <Input value={props.items.sugo_name} />
+            <Input value={items.sugo_name}
+              onChange={ e => {editItems({...items, sugo_name : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Дата установки</label>
-            <Input value={props.items.date_Sugo} />
+            <DatePicker className='date' defaultValue={moment(items.date_Sugo, dateFormat)} format={dateFormat}
+              onChange={(date, newDate)=> {editItems({...items, date_Sugo : newDate})}} />
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Срок службы</label>
-            <Input value={props.items.life_Time_Sugo} />
+            <Input value={items.life_Time_Sugo}
+              onChange={ e => {editItems({...items, life_Time_Sugo : e.target.value})}} />
+          </div>
+          <div className="info-box__content_sugo-item textarea">
+            <label htmlFor="">Примечание</label>
+            <Input.TextArea value={items.note}
+              autosize={{ minRows: 3, maxRows: 5 }}
+              onChange={ e => {editItems({...items, note : e.target.value})}} />
+          </div>
+        </div>
+        <center><h3>Состояние</h3></center>
+        <div className="info-box__content_sugo">
+          <div className="info-box__content_sugo-item but">
+            <span className={items.func === 1 ? "but-item" : "but-item err"} 
+              onClick={ () => {editItems({...items, func : items.func === 1 ? 0 : 1})}}
+            >{items.func === 1 ? "В работе" : "Не исправность"}</span>
+          </div>
+          <div className="info-box__content_sugo-item but">
+            <Button onClick={ () => {uppCoup(items)}}>Сохранить</Button>
           </div>
         </div>
       </div>

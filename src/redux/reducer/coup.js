@@ -18,7 +18,7 @@ export default (state = initialState, {type, payload}) => {
           payload
         ]
       };
-      case 'UPP_COUP':
+      case 'UPP_COUP1':
         return {
           ...state,
           items: state.items.filter(o => {
@@ -50,17 +50,18 @@ export default (state = initialState, {type, payload}) => {
             return o;
           })
         };
-        case 'UPP_COUP1': 
-          return Object.assign({}, state, {
-            items: state.items.filter(item => {
+        case 'UPP_COUP': 
+          return {
+            ...state,
+            items: state.items.filter( item => {
               if (item.ID === state.currentID) {
-                return Object.assign({}, item, {
-                  sugo: payload.sugo,
-                  shetchik_name: payload.shetchik_name
-                })
+                item = payload
+                console.log('item', payload)
+                console.log('state', state.items)
               }
+              return item;
             })
-          });
+          };
     case 'GET_GURRENT_ID':
       return {
         ...state,
