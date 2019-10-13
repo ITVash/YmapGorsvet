@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { coupActions } from '../../redux/actions';
+import { coupActions, oporaActions } from '../../redux/actions';
 import { YMaps, SearchBox } from '../../Components';
 
-const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup }) => {
+const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora }) => {
+  window.coupItems = items;
   const [ searchValue, setSearchValue ] = useState('');
   const [ filter, setFilter ] = useState(Array.from(items));
   const onSearch = value =>{
@@ -11,6 +12,9 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup }) => {
     setSearchValue(value);
   };
   useEffect(() => {
+    /*if (!opora.length) {
+      fetchOpora();
+    }*/
     if(!items.length) {
       fetchCoup();
     } else {
@@ -37,7 +41,10 @@ const mapStateToProps = state => {
     fetchCoup: state.coup.fetchCoup,
     getCurrentID: state.coup.getCurrentID,
     accessLevel: state.auth.accessLevel,
-    getUppCoup: state.coup.getUppCoup
+    getUppCoup: state.coup.getUppCoup,
+    opora: state.opora.items,
+    fetchOpora: state.opora.fetchOpora
   }
 };
-export default connect(mapStateToProps, coupActions)(Maps);
+
+export default connect(mapStateToProps, {...coupActions, ...oporaActions})(Maps);

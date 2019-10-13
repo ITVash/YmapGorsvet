@@ -1,0 +1,287 @@
+﻿[
+  {
+    "ID": 1,
+    "coupID": 1,
+    "areaID": 6,
+    "title": "Опора №4322",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97454,
+      "lng": 37.75708
+    }
+  },
+  {
+    "ID": 2,
+    "coupID": 1,
+    "areaID": 6,
+    "title": "Опора №4212",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97469,
+      "lng": 37.75712
+    }
+  },
+  {
+    "ID": 3,
+    "coupID": 1,
+    "areaID": 6,
+    "title": "Опора №9902",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97482,
+      "lng": 37.75716
+    }
+  },
+  {
+    "ID": 4,
+    "coupID": 1,
+    "areaID": 6,
+    "title": "Опора №7878",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97485,
+      "lng": 37.75694
+    }
+  },
+  {
+    "ID": 5,
+    "coupID": 1,
+    "areaID": 6,
+    "title": "Опора №1547",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97486,
+      "lng": 37.7567
+    }
+  },
+  {
+    "ID": 6,
+    "coupID": 2,
+    "areaID": 6,
+    "title": "Опора №1234",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97556,
+      "lng": 37.75146
+    }
+  },
+  {
+    "ID": 7,
+    "coupID": 2,
+    "areaID": 6,
+    "title": "Опора №4321",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97585,
+      "lng": 37.7515
+    }
+  },
+  {
+    "ID": 8,
+    "coupID": 2,
+    "areaID": 6,
+    "title": "Опора №21",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97612,
+      "lng": 37.75156
+    }
+  },
+  {
+    "ID": 9,
+    "coupID": 2,
+    "areaID": 6,
+    "title": "Опора №90",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97635,
+      "lng": 37.75166
+    }
+  },
+  {
+    "ID": 10,
+    "coupID": 2,
+    "areaID": 6,
+    "title": "Опора №32",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97661,
+      "lng": 37.75172
+    }
+  },
+  {
+    "ID": 11,
+    "coupID": 3,
+    "areaID": 6,
+    "title": "Опора №9939",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97248,
+      "lng": 37.75028
+    }
+  },
+  {
+    "ID": 12,
+    "coupID": 3,
+    "areaID": 6,
+    "title": "Опора №8484",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97245,
+      "lng": 37.75057
+    }
+  },
+  {
+    "ID": 13,
+    "coupID": 3,
+    "areaID": 6,
+    "title": "Опора №4365",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97243,
+      "lng": 37.75078
+    }
+  },
+  {
+    "ID": 14,
+    "coupID": 3,
+    "areaID": 6,
+    "title": "Опора №0944",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.9724,
+      "lng": 37.75097
+    }
+  },
+  {
+    "ID": 15,
+    "coupID": 3,
+    "areaID": 6,
+    "title": "Опора №22211",
+    "note": "Опора в Кировском районе.",
+    "svetilnik": "ЖКУ150",
+    "postavchik_Svet": "БалашихаСвет",
+    "date_Svet": "09.10.2019",
+    "life_Time_Svet": "10 лет",
+    "Lampa": "ДНАТ150",
+    "postavchik_Lamp": "БалашихаСвет",
+    "date_Lamp": "09.10.2019",
+    "life_Time_Lamp": "10 лет",
+    "pos": {
+      "lat": 47.97226,
+      "lng": 37.75098
+    }
+  }
+]
