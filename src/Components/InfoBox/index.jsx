@@ -49,11 +49,15 @@ const InfoBox = (props) => {
         <div className="info-box__content_sugo kont">
           <div className="info-box__content_sugo-item">
             <label htmlFor="">К1</label>
-            <span className={props.items.kontaktor1 ? "tr" : null}>{props.items.kontaktor1 ? "Есть" : "Нет"}</span>
+            <span className={items.kontaktor1 ? "tr" : null}
+              onClick={ () => {editItems({...items, kontaktor1 : !items.kontaktor1})}}
+            >{items.kontaktor1 ? "Есть" : "Нет"}</span>
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">К2</label>
-            <span className={props.items.kontaktor2 ? "tr" : null}>{props.items.kontaktor2 ? "Есть" : "Нет"}</span>
+            <span className={items.kontaktor2 ? "tr" : null}
+              onClick={ () => {editItems({...items, kontaktor2 : !items.kontaktor2})}}
+            >{items.kontaktor2 ? "Есть" : "Нет"}</span>
           </div>
         </div>
         <center><h4>Предохранители</h4></center>
@@ -140,7 +144,7 @@ const InfoBox = (props) => {
               onChange={ e => {editItems({...items, postavchik_Shethika : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Тип счетчика</label>
+            <label htmlFor="">Тип</label>
             <Input value={items.shetchik_name}
               onChange={ e => {editItems({...items, shetchik_name : e.target.value})}} />
           </div>
@@ -163,7 +167,7 @@ const InfoBox = (props) => {
               onChange={ e => {editItems({...items, postavchik_Sugo : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Тип вкл. устройства</label>
+            <label htmlFor="">Тип</label>
             <Input value={items.sugo_name}
               onChange={ e => {editItems({...items, sugo_name : e.target.value})}} />
           </div>
@@ -187,9 +191,9 @@ const InfoBox = (props) => {
         <center><h3>Состояние</h3></center>
         <div className="info-box__content_sugo">
           <div className="info-box__content_sugo-item but">
-            <span className={items.func === 1 ? "but-item" : "but-item err"} 
+            <span className={items.func === 1 ? "but-item err" : "but-item"} 
               onClick={ () => {editItems({...items, func : items.func === 1 ? 0 : 1})}}
-            >{items.func === 1 ? "В работе" : "Не исправность"}</span>
+            >{items.func === 1 ? "Не исправность" : "В работе"}</span>
           </div>
           <div className="info-box__content_sugo-item full">
             <Button type="primary" block onClick={ () => {
