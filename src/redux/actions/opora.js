@@ -5,6 +5,10 @@ const actions = {
     type: 'GET_OPORA',
     payload: items
   }),
+  getOporaID: id => ({
+    type: 'GET_CURRENT_ID',
+    payload: id
+  }),
   fetchOpora: () => dispatch => {
     opora.getAll().then(({data}) =>{
       dispatch(actions.getOpora(data));

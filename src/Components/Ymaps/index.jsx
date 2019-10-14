@@ -10,8 +10,9 @@ const mapData = {
   zoom: 12,
 };
 const Ymap = (props) => {
-  const { coups, onSelectCoup, uppCoup , opora} = props;
+  const { coups, onSelectCoup, onSelectOpora, uppCoup , opora} = props;
   const [ setCoup, setSelectCoup ] = useState(null);
+  const [ setOpora, setSelectOpora ] = useState(null);
   return (
     <YMaps onApiAvaliable={ymaps => console.log('Maps', ymaps)}>
       <Map defaultState={mapData} width="100%" height="100vh">
@@ -19,6 +20,9 @@ const Ymap = (props) => {
           onClick={() => {setSelectCoup(item); onSelectCoup(item.ID); 
             const Info = document.querySelector('.info-box');
             Info.classList.add("open");
+          }}
+          properties={{
+            hintContent: `${item.title}`,
           }}
           options={{
             // Options. You must specify this type of layout.
@@ -33,13 +37,17 @@ const Ymap = (props) => {
           }}
         />)}
         {opora.map(item => <Placemark key={item.ID} geometry={[item.pos.lat, item.pos.lng]}
+          onClick={ () => {
+            setSelectOpora(item);
+            onSelectOpora(item.ID);
+          }}
           options={{
             // Options. You must specify this type of layout.
             iconLayout: 'default#image',
             // Custom image for the placemark icon.
             iconImageHref: `./img/${item.areaID}_opora_${item.func}.png`,
             // The size of the placemark.
-            iconImageSize: [20, 20],
+            iconImageSize: [10, 10],
             // The offset of the upper left corner of the icon relative
             // to its "tail" (the anchor point).
             iconImageOffset: [0, -15],

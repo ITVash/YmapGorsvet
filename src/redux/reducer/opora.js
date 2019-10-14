@@ -1,5 +1,6 @@
 const initialState = {
-  items: []
+  items: [],
+  getCurrentID: null
 };
 export default ( state = initialState, { type, payload } ) => {
   switch (type) {
@@ -7,6 +8,11 @@ export default ( state = initialState, { type, payload } ) => {
       return {
         ...state,
         items: payload
+      };
+    case 'GET_CURRENT_ID':
+      return {
+        ...state,
+        getCurrentID: payload
       };
     default:
       return state;
