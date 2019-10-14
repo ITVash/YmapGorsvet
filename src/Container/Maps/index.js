@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { coupActions, oporaActions } from '../../redux/actions';
 import { YMaps, SearchBox } from '../../Components';
 
-const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getUppCoup, opora, fetchOpora }) => {
+const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCoup, getUppCoup, opora, fetchOpora, uppOpora }) => {
   const [ searchValue, setSearchValue ] = useState('');
   const [ filter, setFilter ] = useState(Array.from(items));
   const [ filterOpora, setFilterOpora ] = useState(Array.from(opora));
@@ -35,9 +35,12 @@ const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getUppCoup, opora, f
       <YMaps
         coups={ filter }
         opora={ filterOpora }
+        coupInfo={ getInfoCoup }
+        infoCoup= { infoCoup }
         onSelectOpora={ getOporaID }
         onSelectCoup={ getCurrentID }
-        uppCoup={getUppCoup}
+        uppCoup={ getUppCoup }
+        uppOpora={ uppOpora }
       />
     </>
   )
@@ -54,4 +57,4 @@ const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getUppCoup, opora, f
   }
 };*/
 
-export default connect(({coup, opora}) => ({items: coup.items, opora: opora.items}), {...coupActions, ...oporaActions})(Maps);
+export default connect(({coup, opora}) => ({items: coup.items, opora: opora.items, infoCoup: opora.infoCoup}), {...coupActions, ...oporaActions})(Maps);

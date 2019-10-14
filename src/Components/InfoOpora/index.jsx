@@ -3,7 +3,7 @@ import { Icon, Input, DatePicker, Button } from 'antd';
 import moment from 'moment';
 
 import './style.scss';
-const InfoBox = (props) => {
+const InfoOpora = (props) => {
   const area = {
     1: "Ворошиловский район",
     2: "Киевский район",
@@ -19,66 +19,67 @@ const InfoBox = (props) => {
 
   window.valuesOpora = props.items;
   window.editValuesOpora = props.editItems;
-  const { items, editItems } = props;
+  const { items, editItems, infoCoup, uppOpora } = props;
+  const { title } = infoCoup;
   return (
-    <div className="info-box">
-      <span className="info-box__close" onClick={
+    <div className="info-opora" tabIndex='0'>
+      <span className="info-opora__close" onClick={
         () => {
-          const wind = document.querySelector(".info-box");
+          const wind = document.querySelector(".info-opora");
           wind.classList.remove("open");
         }
       }><Icon type="close" /></span>      
-      <div className="info-box__title">
+      <div className="info-opora__title">
         <h3>{items.title}</h3>
-        <span>{area[items.areaID]}</span>
+        <span>{ title } {area[items.areaID]}</span>
       </div>
-      <div className="info-box__content">
+      <div className="info-opora__content">
         <center><h3>Светильник</h3></center>
-        <div className="info-box__content_sugo">
-          <div className="info-box__content_sugo-item">
+        <div className="info-opora__content_opora">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Поставщик</label>
             <Input name="sugo" 
               value={items.postavchik_Svet} onChange={e => editItems({...items, postavchik_Svet : e.target.value})} />
           </div>
-          <div className="info-box__content_sugo-item">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Светильник</label>
             <Input name="shetchik_name" 
               value={items.svetilnik } onChange={e => editItems({...items, svetilnik : e.target.value})} />
           </div>
-          <div className="info-box__content_sugo-item">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Дата установки</label>
             <DatePicker className='date' defaultValue={moment(items.date_Svet, dateFormat)} format={dateFormat}
               onChange={(date, newDate)=> {editItems({...items, date_Svet : newDate})}} />
           </div>
-          <div className="info-box__content_sugo-item">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Срок службы</label>
             <Input value={items.life_Time_Svet}
               onChange={ e => {editItems({...items, life_Time_Svet : e.target.value})}} />
           </div>
         </div>
         <center><h3>Лампа</h3></center>
-        <div className="info-box__content_sugo">
-          <div className="info-box__content_sugo-item">
+        <div className="info-opora__content_opora">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Поставщик</label>
             <Input value={items.postavchik_Lamp}
               onChange={ e => {editItems({...items, postavchik_Lamp : e.target.value})}} />
           </div>
-          <div className="info-box__content_sugo-item">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Лампа</label>
             <Input value={items.Lampa} 
               onChange={ e => {editItems({...items, Lampa : e.target.value})}} />
           </div>
-          <div className="info-box__content_sugo-item">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Дата установки</label>
             <DatePicker className='date' defaultValue={moment(items.date_Lamp, dateFormat)} format={dateFormat}
               onChange={(date, newDate)=> {editItems({...items, date_Lamp : newDate})}} />
           </div>
-          <div className="info-box__content_sugo-item">
+          <div className="info-opora__content_opora-item">
             <label htmlFor="">Срок службы</label>
             <Input value={items.life_Time_Lamp}
               onChange={ e => {editItems({...items, life_Time_Lamp : e.target.value})}} />
           </div>
-          <div className="info-box__content_sugo-item textarea">
+          <div className="info-opora__content_opora-item textarea">
             <label htmlFor="">Примечание</label>
             <Input.TextArea value={items.note}
               autosize={{ minRows: 3, maxRows: 5 }}
@@ -86,16 +87,16 @@ const InfoBox = (props) => {
           </div>
         </div>
         <center><h3>Состояние</h3></center>
-        <div className="info-box__content_sugo">
-          <div className="info-box__content_sugo-item but">
+        <div className="info-opora__content_opora">
+          <div className="info-opora__content_opora-item but">
             <span className={items.func === 1 ? "but-item err" : "but-item"} 
               onClick={ () => {editItems({...items, func : items.func === 1 ? 0 : 1})}}
             >{items.func === 1 ? "Не исправность" : "В работе"}</span>
           </div>
-          <div className="info-box__content_sugo-item full">
+          <div className="info-opora__content_opora-item full">
             <Button type="primary" block onClick={ () => {
-              //uppCoup(items);
-              const wind = document.querySelector(".info-box");
+              uppOpora(items);
+              const wind = document.querySelector(".info-opora");
               wind.classList.remove("open");
             }}>Сохранить</Button>
           </div>
@@ -105,4 +106,4 @@ const InfoBox = (props) => {
   )
 }
 
-export default InfoBox
+export default InfoOpora

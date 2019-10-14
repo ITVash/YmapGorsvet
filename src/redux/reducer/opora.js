@@ -1,6 +1,7 @@
 const initialState = {
   items: [],
-  getCurrentID: null
+  currentID: null,
+  infoCoup: []
 };
 export default ( state = initialState, { type, payload } ) => {
   switch (type) {
@@ -12,8 +13,23 @@ export default ( state = initialState, { type, payload } ) => {
     case 'GET_CURRENT_ID':
       return {
         ...state,
-        getCurrentID: payload
+        currentID: payload
       };
+      case 'UPP_OPORA':
+        return {
+          ...state,
+          items: state.items.filter(item => {
+            if (item.ID === state.currentID) {
+              return Object.assign(item, payload)
+            }
+            return item;
+          })
+        };
+      case 'GET_COUP_INFO':
+        return {
+          ...state,
+          infoCoup: payload
+        };
     default:
       return state;
   }

@@ -10,7 +10,7 @@ const mapData = {
   zoom: 12,
 };
 const Ymap = (props) => {
-  const { coups, onSelectCoup, onSelectOpora, uppCoup , opora} = props;
+  const { coups, onSelectCoup, onSelectOpora, coupInfo, infoCoup, uppCoup , opora, uppOpora} = props;
   const [ setCoup, setSelectCoup ] = useState(null);
   const [ setOpora, setSelectOpora ] = useState(null);
   return (
@@ -39,9 +39,10 @@ const Ymap = (props) => {
         {opora.map(item => <Placemark key={item.ID} geometry={[item.pos.lat, item.pos.lng]}
           onClick={ () => {
             setSelectOpora(item);
+            coupInfo(item);
             onSelectOpora(item.ID);
-            const Info = document.querySelector('.info-box');
-            Info.classList.add("open");
+            const InfoOpora = document.querySelector('.info-opora');
+            InfoOpora.classList.add("open");
           }}
           options={{
             // Options. You must specify this type of layout.
@@ -77,7 +78,7 @@ const Ymap = (props) => {
           }}
         />
         {setCoup && (
-          <InfoBox 
+          <InfoBox
             items={ setCoup }
             editItems={ setSelectCoup }
             uppCoup={ uppCoup } />
@@ -86,6 +87,8 @@ const Ymap = (props) => {
           <InfoOpora 
             items={ setOpora }
             editItems={ setSelectOpora }
+            infoCoup={ infoCoup }
+            uppOpora={ uppOpora }
           />
         )}
       </Map>
