@@ -7,8 +7,10 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
   window.coupItems = items;
   const [ searchValue, setSearchValue ] = useState('');
   const [ filter, setFilter ] = useState(Array.from(items));
+  const [ filterOpora, setFilterOpora ] = useState(Array.from(opora));
   const onSearch = value =>{
     setFilter(items.filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) >= 0 ));
+    setFilterOpora(opora.filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) >= 0 ));
     setSearchValue(value);
   };
   useEffect(() => {
@@ -21,6 +23,8 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
   useEffect(() => {
     if (!opora.length) {
       fetchOpora();
+    } else {
+      setFilter(opora);
     }
   }, [opora])
   return (
@@ -31,7 +35,7 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
       />
       <YMaps
         coups={ filter }
-        opora={opora}
+        opora={ filterOpora }
         onSelectCoup={ getCurrentID }
         uppCoup={getUppCoup}
       />

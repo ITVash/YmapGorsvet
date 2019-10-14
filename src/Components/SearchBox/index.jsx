@@ -6,7 +6,7 @@ const SearchBox = ({ onSearch }) => {
   return (
     <div className="serch-box">
       <Input.Search 
-        placeholder="Название шкафа"
+        placeholder="Название шкафа/опоры"
         style={{ width: 238, height: 30 }}
         onPressEnter={e => onSearch(e.target.value)}
         //value={ SearchValue }
