@@ -45,16 +45,4 @@ const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCou
     </>
   )
 }
-/*const mapStateToProps = state => {
-  return {
-    items: state.coup.items,
-    fetchCoup: state.coup.fetchCoup,
-    getCurrentID: state.coup.getCurrentID,
-    accessLevel: state.auth.accessLevel,
-    getUppCoup: state.coup.getUppCoup,
-    opora: state.opora.items,
-    fetchOpora: state.opora.fetchOpora
-  }
-};*/
-
 export default connect(({coup, opora}) => ({items: coup.items, opora: opora.items, infoCoup: opora.infoCoup}), {...coupActions, ...oporaActions})(Maps);

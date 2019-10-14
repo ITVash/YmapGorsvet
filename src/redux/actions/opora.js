@@ -21,16 +21,17 @@ const actions = {
       }
     });
   },
-  fetchOpora1: oporaItems => (dispatch, getState) => {
+  workOpora: oporaItems => (dispatch, getState) => {
     const { coup } = getState();
     const { items } = coup;
-    items.filter(item => {
+    items.map(item => {
       if (item.ID === oporaItems.coupID) {
-        opora.getAll().then(({data}) => {
-          dispatch(actions.getOpora(data));
+        dispatch({
+          type: 'GET_WORK_COUP',
+          payload: item.func
         });
-      }
-    });
+      }      
+    })
   },
   uppOpora: items => ({
     type: 'UPP_OPORA',

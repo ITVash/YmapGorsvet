@@ -15,6 +15,13 @@ export default ( state = initialState, { type, payload } ) => {
         ...state,
         currentID: payload
       };
+      case 'GET_WORK_COUP':
+        return {
+          ...state,
+          items: [
+            ...state.items,
+          ]
+        };
       case 'UPP_OPORA':
         return {
           ...state,
