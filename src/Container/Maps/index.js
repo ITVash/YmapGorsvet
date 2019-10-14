@@ -12,15 +12,17 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
     setSearchValue(value);
   };
   useEffect(() => {
-    /*if (!opora.length) {
-      fetchOpora();
-    }*/
     if(!items.length) {
       fetchCoup();
     } else {
       setFilter(items);
     }
-  }, [items])
+  }, [items]);
+  useEffect(() => {
+    if (!opora.length) {
+      fetchOpora();
+    }
+  }, [opora])
   return (
     <>
       <SearchBox 
@@ -28,14 +30,15 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
         SearchValue={ searchValue }
       />
       <YMaps
-        coups={ filter } 
+        coups={ filter }
+        opora={opora}
         onSelectCoup={ getCurrentID }
         uppCoup={getUppCoup}
       />
     </>
   )
 }
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
   return {
     items: state.coup.items,
     fetchCoup: state.coup.fetchCoup,
@@ -45,6 +48,6 @@ const mapStateToProps = state => {
     opora: state.opora.items,
     fetchOpora: state.opora.fetchOpora
   }
-};
+};*/
 
-export default connect(mapStateToProps, {...coupActions, ...oporaActions})(Maps);
+export default connect(({coup, opora}) => ({items: coup.items, opora: opora.items}), {...coupActions, ...oporaActions})(Maps);

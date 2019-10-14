@@ -10,7 +10,7 @@ const mapData = {
   zoom: 12,
 };
 const Ymap = (props) => {
-  const { coups, onSelectCoup, uppCoup } = props;
+  const { coups, onSelectCoup, uppCoup , opora} = props;
   const [ setCoup, setSelectCoup ] = useState(null);
   return (
     <YMaps onApiAvaliable={ymaps => console.log('Maps', ymaps)}>
@@ -21,17 +21,31 @@ const Ymap = (props) => {
             Info.classList.add("open");
           }}
           options={{
-          // Options. You must specify this type of layout.
-          iconLayout: 'default#image',
-          // Custom image for the placemark icon.
-          iconImageHref: `./img/${item.areaID}_control_${item.func}.png`,
-          // The size of the placemark.
-          iconImageSize: [20, 20],
-          // The offset of the upper left corner of the icon relative
-          // to its "tail" (the anchor point).
-          iconImageOffset: [0, 0],
-        }}
+            // Options. You must specify this type of layout.
+            iconLayout: 'default#image',
+            // Custom image for the placemark icon.
+            iconImageHref: `./img/${item.areaID}_control_${item.func}.png`,
+            // The size of the placemark.
+            iconImageSize: [20, 20],
+            // The offset of the upper left corner of the icon relative
+            // to its "tail" (the anchor point).
+            iconImageOffset: [0, 0],
+          }}
         />)}
+        {opora.map(item => <Placemark key={item.ID} geometry={[item.pos.lat, item.pos.lng]}
+          options={{
+            // Options. You must specify this type of layout.
+            iconLayout: 'default#image',
+            // Custom image for the placemark icon.
+            iconImageHref: `./img/${item.areaID}_opora_${item.func}.png`,
+            // The size of the placemark.
+            iconImageSize: [20, 20],
+            // The offset of the upper left corner of the icon relative
+            // to its "tail" (the anchor point).
+            iconImageOffset: [0, 0],
+          }}
+        />
+        )}
         <GeoObject 
           // The geometry description.
           geometry={{

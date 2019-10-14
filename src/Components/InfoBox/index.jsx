@@ -5,15 +5,15 @@ import moment from 'moment';
 import './style.scss';
 const InfoBox = (props) => {
   const area = {
-    1: "Ворошиловском районе",
-    2: "Киевском районе",
-    3: "Калининском районе",
-    4: "Куйбышевском районе",
-    5: "Ленинском районе",
-    6: "Кировском районе",
-    7: "Петровском районе",
-    8: "Буденовском районе",
-    9:  "Пролетарском районе"
+    1: "Ворошиловский район",
+    2: "Киевский район",
+    3: "Калининский район",
+    4: "Куйбышевский район",
+    5: "Ленинский район",
+    6: "Кировский район",
+    7: "Петровский район",
+    8: "Буденовский район",
+    9:  "Пролетарский райое"
   };
   const dateFormat = 'DD.MM.YYYY';
 
@@ -151,7 +151,8 @@ const InfoBox = (props) => {
           </div>
           <div className="info-box__content_sugo-item">
             <label htmlFor="">Срок службы</label>
-            <Input value={items.life_Time_Shethcika} />
+            <Input value={items.life_Time_Shethcika} 
+              onChange={ e => {editItems({...items, life_Time_Shethcika : e.target.value})}} />
           </div>
         </div>
         <center><h3>Включающие устройство</h3></center>
@@ -191,7 +192,11 @@ const InfoBox = (props) => {
             >{items.func === 1 ? "В работе" : "Не исправность"}</span>
           </div>
           <div className="info-box__content_sugo-item full">
-            <Button type="primary" block onClick={ () => {uppCoup(items)}}>Сохранить</Button>
+            <Button type="primary" block onClick={ () => {
+              uppCoup(items);
+              const wind = document.querySelector(".info-box");
+              wind.classList.remove("open");
+            }}>Сохранить</Button>
           </div>
         </div>
       </div>
