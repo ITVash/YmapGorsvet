@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { YMaps, Map, Placemark, GeoObject } from 'react-yandex-maps';
-import { InfoBox } from '../../Components';
+import { InfoBox, InfoOpora } from '../../Components';
 
 import './style.scss';
 
@@ -40,6 +40,8 @@ const Ymap = (props) => {
           onClick={ () => {
             setSelectOpora(item);
             onSelectOpora(item.ID);
+            const Info = document.querySelector('.info-box');
+            Info.classList.add("open");
           }}
           options={{
             // Options. You must specify this type of layout.
@@ -79,6 +81,12 @@ const Ymap = (props) => {
             items={ setCoup }
             editItems={ setSelectCoup }
             uppCoup={ uppCoup } />
+        )}
+        {setOpora && (
+          <InfoOpora 
+            items={ setOpora }
+            editItems={ setSelectOpora }
+          />
         )}
       </Map>
     </YMaps>
