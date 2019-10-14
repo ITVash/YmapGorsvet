@@ -42,7 +42,7 @@ const Ymap = (props) => {
             iconImageSize: [20, 20],
             // The offset of the upper left corner of the icon relative
             // to its "tail" (the anchor point).
-            iconImageOffset: [-15, -15],
+            iconImageOffset: [0, -15],
           }}
         />
         )}

@@ -24,9 +24,10 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
     if (!opora.length) {
       fetchOpora();
     } else {
-      setFilter(opora);
+      setFilterOpora(opora);
     }
-  }, [opora])
+  }, [opora]);
+  console.log('searchValue', searchValue);
   return (
     <>
       <SearchBox 
@@ -36,6 +37,7 @@ const Maps = ({ fetchCoup, items, getCurrentID, getUppCoup, opora, fetchOpora })
       <YMaps
         coups={ filter }
         opora={ filterOpora }
+        //opora={ opora }
         onSelectCoup={ getCurrentID }
         uppCoup={getUppCoup}
       />
