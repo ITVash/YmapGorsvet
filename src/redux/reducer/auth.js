@@ -3,7 +3,7 @@ const initialState = {
     login: 'Vash',
     email: 'vash_dn@mail.ru'
   }],
-  logIn: false,
+  logIn: true,
   accessLevel: 5
 };
 

@@ -98,7 +98,7 @@ const InfoBox = (props) => {
               onChange={ e => {editItems({...items, postavchik_K1 : e.target.value})}} />
           </div>
           <div className="info-box__content_sugo-item">
-            <label htmlFor="">Контактор</label>
+            <label htmlFor="">Тип</label>
             <Input value={items.kontaktor1_name} 
               onChange={ e => {editItems({...items, kontaktor1_name : e.target.value})}} />
           </div>

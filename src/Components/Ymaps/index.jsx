@@ -21,6 +21,7 @@ const Ymap = (props) => {
             const Info = document.querySelector('.info-box');
             Info.classList.add("open");
           }}
+          modules={['geoObject.addon.hint']}
           properties={{
             hintContent: `${item.title}`,
           }}

@@ -1,2 +1,2 @@
 export { default as Maps } from './Maps'
-//export  authHoc  from './Hoc'
+export  {default as AdminTools}  from './AdminTools'
