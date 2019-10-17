@@ -46,6 +46,12 @@
   &__title {
     text-align: left;
     width: 100%;
+    &.opt {
+      margin-top: 10px;
+      select, option {
+        height: 34px;
+      }
+    }
     h3 {
       font-weight: 600;
       font-size: 18px;
@@ -55,6 +61,8 @@
     span {
       font-size: 14px;
       font-weight: 300;
+      margin-top: 10px;
+      top: 10px;
     }
   }
   &__content {

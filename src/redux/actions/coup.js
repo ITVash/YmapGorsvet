@@ -1,6 +1,10 @@
 import { coup } from '../../api';
 
 const actions = {
+  addCoup: items => ({
+    type: 'ADD_COUP',
+    payload: items
+  }),
   getCoup: items => ({
     type: 'GET_COUP',
     payload: items

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
 import { InfoBox, InfoOpora } from '../../Components';
 const AdminMap = props => {
-  const { items, opora, editItems, editOpora, type, coupID, oporaID } = props;
+  const { items, opora, editItems, editOpora, type, coupID, oporaID, addCoup } = props;
   const [ coordinats, setCoordinats ] = useState({lat:'', lng:'', pos: null});
   /*const geocode = ymaps => {
     ymaps.geocode('Украина, г. Донецк, ул. Лазника, 19')
@@ -18,14 +18,12 @@ const AdminMap = props => {
   };
   return (
     <YMaps onApiAvaliable={ymaps => console.log('Maping', ymaps)} >
-      <Map state={!coordinats.pos ? mapData : { center : [coordinats.pos.lat, coordinats.pos.lng], zoom: 12 }} width="100%" height="100vh" modules={['geocode']}
+      <Map defaultState={!coordinats.pos ? mapData : { center : [coordinats.pos.lat, coordinats.pos.lng], zoom: 12 }} width="100%" height="100vh" modules={['geocode']}
         onClick={ e => {
           let coords = e.get('coords');
           let poson = {lat: coords[0], lng: coords[1]}
           type === 'coup' ? editItems({...items, ID: coupID, pos: poson}) : editOpora({...opora, ID: oporaID, pos: poson})
           setCoordinats({...coordinats, pos : poson})
-          console.log('Кликнули по карте', poson)
-          console.log('Клик', items)
         } }
       >
         <SearchControl />
@@ -36,14 +34,9 @@ const AdminMap = props => {
               Info.classList.add("open");
             }}
             options={{
-              // Options. You must specify this type of layout.
               iconLayout: 'default#image',
-              // Custom image for the placemark icon.
               iconImageHref: `./img/coup.png`,
-              // The size of the placemark.
               iconImageSize: [30, 30],
-              // The offset of the upper left corner of the icon relative
-              // to its "tail" (the anchor point).
               iconImageOffset: [-15, -30],
             }}
           />
@@ -55,14 +48,9 @@ const AdminMap = props => {
               InfoOpora.classList.add("open");
             }}
             options={{
-              // Options. You must specify this type of layout.
               iconLayout: 'default#image',
-              // Custom image for the placemark icon.
               iconImageHref: `./img/opora.png`,
-              // The size of the placemark.
               iconImageSize: [30, 30],
-              // The offset of the upper left corner of the icon relative
-              // to its "tail" (the anchor point).
               iconImageOffset: [-15, -30],
             }}
           />
@@ -70,6 +58,7 @@ const AdminMap = props => {
         {items && <InfoBox 
           items={ items }
           editItems={ editItems }
+          uppCoup={ addCoup }
         />}
         {opora && <InfoOpora 
           items={ opora }

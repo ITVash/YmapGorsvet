@@ -3,7 +3,7 @@ import { AdminMaps, AdminMenu } from '../../Components';
 import { connect } from 'react-redux';
 import { coupActions, oporaActions } from '../../redux/actions';
 import './style.scss';
-const AdminTools = ({ itemsR, oporaR, fetchCoup, fetchOpora }) => {
+const AdminTools = ({ itemsR, oporaR, fetchCoup, fetchOpora, addCoup }) => {
   const [ coup, setCoup ] = useState({
     ID: null,
     title: "",
@@ -71,8 +71,6 @@ const AdminTools = ({ itemsR, oporaR, fetchCoup, fetchOpora }) => {
   }, [fetchCoup, fetchOpora]);
   const coupID = itemsR.length + 1;
   const oporaID = oporaR.length + 1;
-  console.log('coupID', coupID);
-  console.log('oporaID', oporaID);
   return (
     <>
       <AdminMenu
@@ -86,6 +84,7 @@ const AdminTools = ({ itemsR, oporaR, fetchCoup, fetchOpora }) => {
         editItems={ setCoup }
         opora={ opora }
         editOpora={ setOpora }
+        addCoup={ addCoup }
       />
     </>
   )
