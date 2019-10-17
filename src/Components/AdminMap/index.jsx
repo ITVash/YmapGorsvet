@@ -39,7 +39,7 @@ const AdminMap = props => {
               iconImageSize: [30, 30],
               // The offset of the upper left corner of the icon relative
               // to its "tail" (the anchor point).
-              iconImageOffset: [0, 0],
+              iconImageOffset: [-15, -30],
             }}
           />
         }
@@ -54,7 +54,7 @@ const AdminMap = props => {
               iconImageSize: [30, 30],
               // The offset of the upper left corner of the icon relative
               // to its "tail" (the anchor point).
-              iconImageOffset: [0, 0],
+              iconImageOffset: [-15, -30],
             }}
           />
         }
