@@ -4,3 +4,4 @@ export { default as InfoBox } from './InfoBox';
 export { default as InfoOpora } from './InfoOpora';
 export { default as Main } from './Main';
 export { default as AdminMaps } from './AdminMap';
+export { default as AdminMenu } from './AdminMenu';

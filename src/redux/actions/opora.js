@@ -19,19 +19,8 @@ const actions = {
           payload: item
         });
       }
+      return item
     });
-  },
-  workOpora: oporaItems => (dispatch, getState) => {
-    const { coup } = getState();
-    const { items } = coup;
-    items.map(item => {
-      if (item.ID === oporaItems.coupID) {
-        dispatch({
-          type: 'GET_WORK_COUP',
-          payload: item.func
-        });
-      }      
-    })
   },
   uppOpora: items => ({
     type: 'UPP_OPORA',
