@@ -28,10 +28,10 @@ const InfoBox = (props) => {
         }
       }><Icon type="close" /></span>      
       <div className="info-box__title">
-        <h3>{items.title === "" ?
+        <h3>{items.title === "" || !items.title ?
           <><label htmlFor="">Название шкафа</label>
           <Input onPressEnter={e => editItems({...items, title : e.target.value})} /></> : items.title}</h3>
-        <span>{items.areaID === null ? 
+        <span>{items.areaID === null || !items.areaID ? 
           <>
             <select name="areasID" className="opt"
               onChange={ e => editItems({...items, areaID : e.target.value})}
