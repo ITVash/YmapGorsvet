@@ -215,6 +215,7 @@ const InfoBox = (props) => {
           <div className="info-box__content_sugo-item full">
             <Button type="primary" block onClick={ () => {
               uppCoup(items);
+              editItems({});
               const wind = document.querySelector(".info-box");
               wind.classList.remove("open");
             }}>Сохранить</Button>
