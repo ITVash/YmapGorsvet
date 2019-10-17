@@ -40,7 +40,7 @@ const InfoOpora = (props) => {
             <select name="areasID" className="opt"
                 onChange={ e => editItems({...items, coupID : e.target.value})}
             >
-              {infoCoup.map(item => <option value={item.ID}>{item.title}</option>)}
+              {infoCoup.map(item => <option key={item.ID} value={item.ID}>{item.title}</option>)}
             </select>
           </> : title } {items.areaID === null || !items.areaID ? 
           <>

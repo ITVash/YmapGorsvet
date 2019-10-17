@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 const AdminMenu = props => {
   const { editType } = props;
@@ -10,6 +11,9 @@ const AdminMenu = props => {
         </div>
         <div className="menu__items_opora" onClick={ () => editType('opora') }>
           <img src="./img/opora_item.png" alt="Опора"/>
+        </div>
+        <div className="menu__items_exit" onClick={ () => {} }>
+          <Link to={`/`} ><span> &#171; </span></Link>
         </div>
       </div>
     </div>
