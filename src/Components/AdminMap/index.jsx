@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
 const AdminMap = props => {
-  const { items, opora, editItems, editOpora } = props;
+  const { items, opora, editItems, editOpora, type } = props;
   const [ coordinats, setCoordinats ] = useState({lat:'', lng:'', pos: null});
   /*const geocode = ymaps => {
     ymaps.geocode('Украина, г. Донецк, ул. Лазника, 19')
@@ -21,15 +21,43 @@ const AdminMap = props => {
         onClick={ e => {
           let coords = e.get('coords');
           let poson = {lat: coords[0], lng: coords[1]}
+          {type === 'coup' ? editItems({...items, pos: poson}) : editOpora({...opora, pos: poson})}
           setCoordinats({...coordinats, pos : poson})
           console.log('Кликнули по карте', poson)
           console.log('Клик', coordinats)
         } }
       >
         <SearchControl />
-      { !coordinats.pos ? null :
-            <Placemark geometry={[coordinats.pos.lat, coordinats.pos.lng]} />
-      }
+        { !items.pos ? null :
+          <Placemark geometry={[items.pos.lat, items.pos.lng]} 
+            options={{
+              // Options. You must specify this type of layout.
+              iconLayout: 'default#image',
+              // Custom image for the placemark icon.
+              iconImageHref: `./img/coup.png`,
+              // The size of the placemark.
+              iconImageSize: [30, 30],
+              // The offset of the upper left corner of the icon relative
+              // to its "tail" (the anchor point).
+              iconImageOffset: [0, 0],
+            }}
+          />
+        }
+        { !opora.pos ? null :
+          <Placemark geometry={[opora.pos.lat, opora.pos.lng]} 
+            options={{
+              // Options. You must specify this type of layout.
+              iconLayout: 'default#image',
+              // Custom image for the placemark icon.
+              iconImageHref: `./img/opora.png`,
+              // The size of the placemark.
+              iconImageSize: [30, 30],
+              // The offset of the upper left corner of the icon relative
+              // to its "tail" (the anchor point).
+              iconImageOffset: [0, 0],
+            }}
+          />
+        }
       </Map>
     </YMaps>
   )

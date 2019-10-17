@@ -62,10 +62,14 @@ const AdminTools = () => {
       lng: null
     }
   });
+  const [ type, setType ] = useState('');
   return (
     <>
-      <AdminMenu />
+      <AdminMenu
+        editType={ setType }
+      />
       <AdminMaps
+        type={ type }
         items={ coup }
         editItems={ setCoup }
         opora={ opora }
