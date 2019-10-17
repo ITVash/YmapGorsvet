@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
+import { InfoBox, InfoOpora } from '../../Components';
 const AdminMap = props => {
   const { items, opora, editItems, editOpora, type } = props;
   const [ coordinats, setCoordinats ] = useState({lat:'', lng:'', pos: null});
@@ -29,7 +30,11 @@ const AdminMap = props => {
       >
         <SearchControl />
         { !items.pos ? null :
-          <Placemark geometry={[items.pos.lat, items.pos.lng]} 
+          <Placemark geometry={[items.pos.lat, items.pos.lng]}
+            onClick={ () => {
+              const Info = document.querySelector('.info-box');
+              Info.classList.add("open");
+            }}
             options={{
               // Options. You must specify this type of layout.
               iconLayout: 'default#image',
@@ -44,7 +49,11 @@ const AdminMap = props => {
           />
         }
         { !opora.pos ? null :
-          <Placemark geometry={[opora.pos.lat, opora.pos.lng]} 
+          <Placemark geometry={[opora.pos.lat, opora.pos.lng]}
+            onClick={ () => {
+              const InfoOpora = document.querySelector('.info-opora');
+              InfoOpora.classList.add("open");
+            }}
             options={{
               // Options. You must specify this type of layout.
               iconLayout: 'default#image',
@@ -58,6 +67,15 @@ const AdminMap = props => {
             }}
           />
         }
+        {items && <InfoBox 
+          items={ items }
+          editItems={ editItems }
+        />}
+        {opora && <InfoOpora 
+          items={ opora }
+          editItems={ editOpora }
+          infoCoup={ "1523" }
+        />}
       </Map>
     </YMaps>
   )
