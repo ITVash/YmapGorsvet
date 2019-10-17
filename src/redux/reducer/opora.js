@@ -10,6 +10,14 @@ export default ( state = initialState, { type, payload } ) => {
         ...state,
         items: payload
       };
+    case 'ADD_OPORA':
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          payload
+        ]
+      };
     case 'GET_CURRENT_ID':
       return {
         ...state,

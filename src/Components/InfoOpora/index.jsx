@@ -30,8 +30,35 @@ const InfoOpora = (props) => {
         }
       }><Icon type="close" /></span>      
       <div className="info-opora__title">
-        <h3>{items.title}</h3>
-        <span>{ title } {area[items.areaID]}</span>
+        <h3>{items.title === "" || !items.title ?
+          <>
+            <label htmlFor="">Название Опоры</label>
+            <Input onPressEnter={e => editItems({...items, title : e.target.value})} />
+          </> :items.title}</h3>
+        <span>{ items.coupID === null || !items.coupID ? 
+          <>
+            <select name="areasID" className="opt"
+                onChange={ e => editItems({...items, coupID : e.target.value})}
+            >
+              {infoCoup.map(item => <option value={item.ID}>{item.title}</option>)}
+            </select>
+          </> : title } {items.areaID === null || !items.areaID ? 
+          <>
+            <select name="areasID" className="opt"
+                onChange={ e => editItems({...items, areaID : e.target.value})}
+              >
+              <option value="0">Район расположения</option>
+              <option value="1">Ворошиловский район</option>
+              <option value="2">Киевский район</option>
+              <option value="3">Калининский район</option>
+              <option value="4">Куйбышевский район</option>
+              <option value="5">Ленинский район</option>
+              <option value="6">Кировский район</option>
+              <option value="7">Петровский район</option>
+              <option value="8">Буденовский район</option>
+              <option value="9">Пролетарский райое</option>
+            </select>
+          </> : area[items.areaID]}</span>
       </div>
       <div className="info-opora__content">
         <center><h3>Светильник</h3></center>
@@ -96,6 +123,7 @@ const InfoOpora = (props) => {
           <div className="info-opora__content_opora-item full">
             <Button type="primary" block onClick={ () => {
               uppOpora(items);
+              editItems({});
               const wind = document.querySelector(".info-opora");
               wind.classList.remove("open");
             }}>Сохранить</Button>

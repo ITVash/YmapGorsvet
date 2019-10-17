@@ -9,6 +9,10 @@ const actions = {
     type: 'GET_CURRENT_ID',
     payload: id
   }),
+  addOpora: items => ({
+    type: 'ADD_OPORA',
+    payload: items
+  }),
   getInfoCoup: opora => (dispatch, getState) => {
     const { coup } = getState();
     const { items } = coup;

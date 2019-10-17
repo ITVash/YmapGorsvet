@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
 import { InfoBox, InfoOpora } from '../../Components';
 const AdminMap = props => {
-  const { items, opora, editItems, editOpora, type, coupID, oporaID, addCoup } = props;
+  const { items, opora, editItems, editOpora, type, coupID, oporaID, addCoup, infoCoup, addOpora } = props;
   const [ coordinats, setCoordinats ] = useState({lat:'', lng:'', pos: null});
   /*const geocode = ymaps => {
     ymaps.geocode('Украина, г. Донецк, ул. Лазника, 19')
@@ -63,7 +63,8 @@ const AdminMap = props => {
         {opora && <InfoOpora 
           items={ opora }
           editItems={ editOpora }
-          infoCoup={ "1523" }
+          infoCoup={ infoCoup }
+          uppOpora={ addOpora }
         />}
       </Map>
     </YMaps>
