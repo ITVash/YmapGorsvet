@@ -29,8 +29,8 @@ const InfoBox = (props) => {
         }
       }><Icon type="close" /></span>      
       <div className="info-box__title">
-        <h3>{props.items.title}</h3>
-        <span>{area[props.items.areaID]}</span>
+        <h3>{items.title}</h3>
+        <span>{area[items.areaID]}</span>
       </div>
       <div className="info-box__content">
         <center><h3>Комплектация</h3></center>

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { AdminMaps, AdminMenu } from '../../Components'
+import React, { useState, useEffect } from 'react';
+import { AdminMaps, AdminMenu } from '../../Components';
+import { connect } from 'react-redux';
+import { coupActions, oporaActions } from '../../redux/actions';
 import './style.scss';
-const AdminTools = () => {
+const AdminTools = ({ itemsR, oporaR, fetchCoup, fetchOpora }) => {
   const [ coup, setCoup ] = useState({
     ID: null,
     title: "",
@@ -25,10 +27,10 @@ const AdminTools = () => {
     postavchik_K2: "",
     postavchik_Sugo: "",
     postavchik_Shethika: "",
-    date_K1: "",
-    date_K2: "",
-    date_Sugo: "",
-    date_Shetchika: "",
+    date_K1: "01.01.2019",
+    date_K2: "01.01.2019",
+    date_Sugo: "01.01.2019",
+    date_Shetchika: "01.01.2019",
     life_Time_k1: "",
     life_Time_k2: "",
     life_Time_Sugo: "",
@@ -51,11 +53,11 @@ const AdminTools = () => {
     note: "",
     svetilnik: "",
     postavchik_Svet: "",
-    date_Svet: "",
+    date_Svet: "01.01.2019",
     life_Time_Svet: "",
     Lampa: "",
     postavchik_Lamp: "",
-    date_Lamp: "",
+    date_Lamp: "01.01.2019",
     life_Time_Lamp: "",
     pos: {
       lat: null,
@@ -63,12 +65,22 @@ const AdminTools = () => {
     }
   });
   const [ type, setType ] = useState('');
+  useEffect(() => {
+    fetchCoup();
+    fetchOpora();
+  }, [fetchCoup, fetchOpora]);
+  const coupID = itemsR.length + 1;
+  const oporaID = oporaR.length + 1;
+  console.log('coupID', coupID);
+  console.log('oporaID', oporaID);
   return (
     <>
       <AdminMenu
         editType={ setType }
       />
       <AdminMaps
+        coupID={ coupID }
+        oporaID={ oporaID }
         type={ type }
         items={ coup }
         editItems={ setCoup }
@@ -79,4 +91,4 @@ const AdminTools = () => {
   )
 }
 
-export default AdminTools
+export default connect(({coup, opora}) => ({itemsR: coup.items, oporaR: opora.items}), {...oporaActions, ...coupActions})(AdminTools);

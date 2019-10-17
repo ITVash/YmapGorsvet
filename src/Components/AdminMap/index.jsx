@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
 import { InfoBox, InfoOpora } from '../../Components';
 const AdminMap = props => {
-  const { items, opora, editItems, editOpora, type } = props;
+  const { items, opora, editItems, editOpora, type, coupID, oporaID } = props;
   const [ coordinats, setCoordinats ] = useState({lat:'', lng:'', pos: null});
   /*const geocode = ymaps => {
     ymaps.geocode('Украина, г. Донецк, ул. Лазника, 19')
@@ -22,10 +22,10 @@ const AdminMap = props => {
         onClick={ e => {
           let coords = e.get('coords');
           let poson = {lat: coords[0], lng: coords[1]}
-          {type === 'coup' ? editItems({...items, pos: poson}) : editOpora({...opora, pos: poson})}
+          type === 'coup' ? editItems({...items, ID: coupID, pos: poson}) : editOpora({...opora, ID: oporaID, pos: poson})
           setCoordinats({...coordinats, pos : poson})
           console.log('Кликнули по карте', poson)
-          console.log('Клик', coordinats)
+          console.log('Клик', items)
         } }
       >
         <SearchControl />
