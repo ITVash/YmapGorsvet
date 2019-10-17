@@ -20,12 +20,16 @@
       width: 40px;
       position: relative;
       margin-bottom: 5px;
+      transition: all .5s linear;
       cursor: pointer;
       img {
         margin-left: 10px;
         margin-top: 7px;
         object-fit: cover;
         width: 20px;
+      }
+      &:hover {
+        box-shadow: 0 0 7px 3px rgba(242, 153, 74, .8);
       }
     }
     &_opora {
@@ -35,12 +39,16 @@
       width: 40px;
       position: relative;
       margin-bottom: 5px;
+      transition: all .5s linear;
       cursor: pointer;
       img {
         margin-left: 10px;
         margin-top: 7px;
         object-fit: cover;
         width: 20px;
+      }
+      &:hover {
+        box-shadow: 0 0 7px 3px rgba(175, 175, 173, .8);
       }
     }
   }
