@@ -28,8 +28,26 @@ const InfoBox = (props) => {
         }
       }><Icon type="close" /></span>      
       <div className="info-box__title">
-        <h3>{ items.title }</h3>
-        <span>{ area[items.areaID] }</span>
+        <h3>{items.title === "" || !items.title ?
+          <><label htmlFor="">Название шкафа</label>
+          <Input onPressEnter={e => editItems({...items, title : e.target.value})} /></> : items.title}</h3>
+        <span>{items.areaID === null || !items.areaID ? 
+          <>
+            <select name="areasID" className="opt"
+              onChange={ e => editItems({...items, areaID : e.target.value})}
+            >
+              <option value="0">Район расположения</option>
+              <option value="1">Ворошиловский район</option>
+              <option value="2">Киевский район</option>
+              <option value="3">Калининский район</option>
+              <option value="4">Куйбышевский район</option>
+              <option value="5">Ленинский район</option>
+              <option value="6">Кировский район</option>
+              <option value="7">Петровский район</option>
+              <option value="8">Буденовский район</option>
+              <option value="9">Пролетарский райое</option>
+            </select>
+          </> : area[items.areaID]}</span>
       </div>
       <div className="info-box__content">
         <center><h3>Комплектация</h3></center>
@@ -197,7 +215,7 @@ const InfoBox = (props) => {
           <div className="info-box__content_sugo-item full">
             <Button type="primary" block onClick={ () => {
               uppCoup(items);
-              //editItems({});
+              editItems({});
               const wind = document.querySelector(".info-box");
               wind.classList.remove("open");
             }}>Сохранить</Button>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { YMaps, Map, Placemark, SearchControl } from 'react-yandex-maps';
-import { InfoBox, InfoOpora } from '../../Components';
+import { InfoBoxA, InfoOporaA } from '../../Components';
 const AdminMap = props => {
   const { items, opora, editItems, editOpora, type, coupID, oporaID, addCoup, infoCoup, addOpora } = props;
   const [ coordinats, setCoordinats ] = useState({lat:'', lng:'', pos: null});
@@ -55,12 +55,12 @@ const AdminMap = props => {
             }}
           />
         }
-        {items && <InfoBox 
+        {items && <InfoBoxA
           items={ items }
           editItems={ editItems }
           uppCoup={ addCoup }
         />}
-        {opora && <InfoOpora 
+        {opora && <InfoOporaA
           items={ opora }
           editItems={ editOpora }
           infoCoup={ infoCoup }

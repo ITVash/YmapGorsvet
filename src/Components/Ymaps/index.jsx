@@ -13,7 +13,6 @@ const Ymap = (props) => {
   const { coups, onSelectCoup, onSelectOpora, coupInfo, infoCoup, uppCoup , opora, uppOpora} = props;
   const [ setCoup, setSelectCoup ] = useState(null);
   const [ setOpora, setSelectOpora ] = useState(null);
-  const [ open, setOpen ] = useState('');
   return (
     <YMaps onApiAvaliable={ymaps => console.log('Maps', ymaps)}>
       <Map defaultState={mapData} width="100%" height="100vh">

@@ -2,6 +2,8 @@ export { default as YMaps } from './Ymaps';
 export { default as SearchBox } from './SearchBox';
 export { default as InfoBox } from './InfoBox';
 export { default as InfoOpora } from './InfoOpora';
+export { default as InfoBoxA } from './InfoBoxA';
+export { default as InfoOporaA } from './InfoOporaA';
 export { default as Main } from './Main';
 export { default as AdminMaps } from './AdminMap';
 export { default as AdminMenu } from './AdminMenu';
