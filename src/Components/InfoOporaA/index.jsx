@@ -1,30 +1,17 @@
 import React from 'react'
 import { Icon, Input, DatePicker, Button } from 'antd';
 import moment from 'moment';
-import { InfoBox } from '../../Components';
 
 import './style.scss';
 const InfoOpora = (props) => {
-  const area = {
-    1: "Ворошиловский район",
-    2: "Киевский район",
-    3: "Калининский район",
-    4: "Куйбышевский район",
-    5: "Ленинский район",
-    6: "Кировский район",
-    7: "Петровский район",
-    8: "Буденовский район",
-    9:  "Пролетарский райое"
-  };
   const dateFormat = 'DD.MM.YYYY';
 
   window.valuesOpora = props.items;
   window.editValuesOpora = props.editItems;
-  const { items, editItems, infoCoup, uppOpora, setCoup, coup, uppCoup } = props;
-  const { title } = infoCoup;
+  const { items, editItems, infoCoup, uppOpora, coup } = props;
   console.log('infoCoup', coup);
   return (
-    <><div className="info-opora" tabIndex='0'>
+    <div className="info-opora" tabIndex='0'>
       <span className="info-opora__close" onClick={
         () => {
           const wind = document.querySelector(".info-opora");
@@ -32,41 +19,31 @@ const InfoOpora = (props) => {
         }
       }><Icon type="close" /></span>      
       <div className="info-opora__title">
-        <h3>{items.title === "" || !items.title ?
-          <>
-            <label htmlFor="">Название Опоры</label>
-            <Input onPressEnter={e => editItems({...items, title : e.target.value})} />
-          </> :items.title}</h3>
-        <span>{ items.coupID === null || !items.coupID ? 
-          <>
-            <select name="areasID" className="opt"
-                onChange={ e => editItems({...items, coupID : e.target.value})}
+        <h3>
+          <label htmlFor="">Название Опоры</label>
+          <Input onChange={e => editItems({...items, title : e.target.value})} />
+        </h3>
+        <span>
+          <select name="areasID" className="opt"
+              onChange={ e => editItems({...items, coupID : e.target.value})}
+          >
+            {infoCoup.map(item => <option key={item.ID} value={item.ID}>{item.title}</option>)}
+          </select> 
+          <select name="areasID" className="opt"
+              onChange={ e => editItems({...items, areaID : e.target.value})}
             >
-              {infoCoup.map(item => <option key={item.ID} value={item.ID}>{item.title}</option>)}
-            </select>
-          </> : <span className="link-coup" onClick={ () => {
-            setCoup(infoCoup);
-            const InfoOpora = document.querySelector('.info-opora');
-            const InfoO = document.querySelector('.info-box');
-            coup && InfoO.classList.add("open");
-            coup && InfoOpora.classList.remove("open");
-          }}>{ title }</span> } {items.areaID === null || !items.areaID ? 
-          <>
-            <select name="areasID" className="opt"
-                onChange={ e => editItems({...items, areaID : e.target.value})}
-              >
-              <option value="0">Район расположения</option>
-              <option value="1">Ворошиловский район</option>
-              <option value="2">Киевский район</option>
-              <option value="3">Калининский район</option>
-              <option value="4">Куйбышевский район</option>
-              <option value="5">Ленинский район</option>
-              <option value="6">Кировский район</option>
-              <option value="7">Петровский район</option>
-              <option value="8">Буденовский район</option>
-              <option value="9">Пролетарский райое</option>
-            </select>
-          </> : area[items.areaID]}</span>
+            <option value="0">Район расположения</option>
+            <option value="1">Ворошиловский район</option>
+            <option value="2">Киевский район</option>
+            <option value="3">Калининский район</option>
+            <option value="4">Куйбышевский район</option>
+            <option value="5">Ленинский район</option>
+            <option value="6">Кировский район</option>
+            <option value="7">Петровский район</option>
+            <option value="8">Буденовский район</option>
+            <option value="9">Пролетарский райое</option>
+          </select>
+        </span>
       </div>
       <div className="info-opora__content">
         <center><h3>Светильник</h3></center>
@@ -139,7 +116,6 @@ const InfoOpora = (props) => {
         </div>
       </div>
     </div>
-    {coup && (<InfoBox items={ coup } editItems={ setCoup } uppCoup={ uppCoup } />) }</>
   )
 }
 

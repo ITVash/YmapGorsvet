@@ -4,17 +4,6 @@ import moment from 'moment';
 
 import './style.scss';
 const InfoBox = (props) => {
-  const area = {
-    1: "Ворошиловский район",
-    2: "Киевский район",
-    3: "Калининский район",
-    4: "Куйбышевский район",
-    5: "Ленинский район",
-    6: "Кировский район",
-    7: "Петровский район",
-    8: "Буденовский район",
-    9: "Пролетарский райое"
-  };
   const dateFormat = 'DD.MM.YYYY';
   window.valuesCoup = props.items;
   window.editValuesCoup = props.editItems;
@@ -28,26 +17,25 @@ const InfoBox = (props) => {
         }
       }><Icon type="close" /></span>      
       <div className="info-box__title">
-        <h3>{items.title === "" || !items.title ?
-          <><label htmlFor="">Название шкафа</label>
-          <Input onPressEnter={e => editItems({...items, title : e.target.value})} /></> : items.title}</h3>
-        <span>{items.areaID === null || !items.areaID ? 
-          <>
-            <select name="areasID" className="opt"
-              onChange={ e => editItems({...items, areaID : e.target.value})}
-            >
-              <option value="0">Район расположения</option>
-              <option value="1">Ворошиловский район</option>
-              <option value="2">Киевский район</option>
-              <option value="3">Калининский район</option>
-              <option value="4">Куйбышевский район</option>
-              <option value="5">Ленинский район</option>
-              <option value="6">Кировский район</option>
-              <option value="7">Петровский район</option>
-              <option value="8">Буденовский район</option>
-              <option value="9">Пролетарский райое</option>
-            </select>
-          </> : area[items.areaID]}</span>
+        <h3>
+          <label htmlFor="">Название шкафа</label>
+          <Input onChange={e => editItems({...items, title : e.target.value})} /></h3>
+        <span>
+          <select name="areasID" className="opt"
+            onChange={ e => editItems({...items, areaID : e.target.value})}
+          >
+            <option value="0">Район расположения</option>
+            <option value="1">Ворошиловский район</option>
+            <option value="2">Киевский район</option>
+            <option value="3">Калининский район</option>
+            <option value="4">Куйбышевский район</option>
+            <option value="5">Ленинский район</option>
+            <option value="6">Кировский район</option>
+            <option value="7">Петровский район</option>
+            <option value="8">Буденовский район</option>
+            <option value="9">Пролетарский райое</option>
+          </select>
+        </span>
       </div>
       <div className="info-box__content">
         <center><h3>Комплектация</h3></center>
