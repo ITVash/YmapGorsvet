@@ -8,8 +8,7 @@ const InfoOpora = (props) => {
 
   window.valuesOpora = props.items;
   window.editValuesOpora = props.editItems;
-  const { items, editItems, infoCoup, uppOpora, coup } = props;
-  console.log('infoCoup', coup);
+  const { items, editItems, infoCoup, uppOpora } = props;
   return (
     <div className="info-opora" tabIndex='0'>
       <span className="info-opora__close" onClick={
