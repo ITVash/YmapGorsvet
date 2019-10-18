@@ -46,6 +46,12 @@
   &__title {
     text-align: left;
     width: 100%;
+    & span.link-coup {
+      color: #F2994A !important;
+      font-weight: 600;
+      text-decoration: underline;
+      cursor: pointer;
+    }
     &.opt {
       margin-top: 10px;
       select, option {

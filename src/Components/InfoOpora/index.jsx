@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon, Input, DatePicker, Button } from 'antd';
 import moment from 'moment';
+import { InfoBox } from '../../Components';
 
 import './style.scss';
 const InfoOpora = (props) => {
@@ -19,10 +20,11 @@ const InfoOpora = (props) => {
 
   window.valuesOpora = props.items;
   window.editValuesOpora = props.editItems;
-  const { items, editItems, infoCoup, uppOpora } = props;
+  const { items, editItems, infoCoup, uppOpora, setCoup, coup, uppCoup } = props;
   const { title } = infoCoup;
+  console.log('infoCoup', coup);
   return (
-    <div className="info-opora" tabIndex='0'>
+    <><div className="info-opora" tabIndex='0'>
       <span className="info-opora__close" onClick={
         () => {
           const wind = document.querySelector(".info-opora");
@@ -42,7 +44,13 @@ const InfoOpora = (props) => {
             >
               {infoCoup.map(item => <option key={item.ID} value={item.ID}>{item.title}</option>)}
             </select>
-          </> : title } {items.areaID === null || !items.areaID ? 
+          </> : <span className="link-coup" onClick={ () => {
+            setCoup(infoCoup);
+            const InfoOpora = document.querySelector('.info-opora');
+            const InfoO = document.querySelector('.info-box');
+            coup && InfoO.classList.add("open");
+            coup && InfoOpora.classList.remove("open");
+          }}>{ title }</span> } {items.areaID === null || !items.areaID ? 
           <>
             <select name="areasID" className="opt"
                 onChange={ e => editItems({...items, areaID : e.target.value})}
@@ -131,6 +139,7 @@ const InfoOpora = (props) => {
         </div>
       </div>
     </div>
+    {coup && (<InfoBox items={ coup } editItems={ setCoup } uppCoup={ uppCoup } />) }</>
   )
 }
 
