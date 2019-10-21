@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { coupActions, oporaActions } from '../../redux/actions';
 import { YMaps, SearchBox } from '../../Components';
+import { Menu } from '../../Container'
 
 const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCoup, getUppCoup, opora, fetchOpora, uppOpora }) => {
   const [ searchValue, setSearchValue ] = useState('');
@@ -41,6 +42,7 @@ const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCou
         onSearch={ onSearch } 
         SearchValue={ searchValue }
       />
+      <Menu />
       <YMaps
         coups={ filter }
         opora={ filterOpora }
