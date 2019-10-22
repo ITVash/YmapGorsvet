@@ -8,7 +8,8 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-console.log("redux", store.getState());
+import { authActions } from './redux/actions';
+store.dispatch(authActions.authMe());
 window.store = store;
 ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 

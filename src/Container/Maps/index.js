@@ -10,23 +10,9 @@ const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCou
   const [ filterOpora, setFilterOpora ] = useState(Array.from(opora));
   const onSearch = (value = '') =>{
     setFilter(items.filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) >= 0 ));
-    setFilterOpora(opora.filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) >= 0 ));
+    setFilterOpora(opora.filter(item => item.title.toLowerCase().indexOf(value.toLowerCase()) >= 0));
     setSearchValue(value);
   };
-  /*useEffect(() => {
-    if(!items.length) {
-      fetchCoup();
-    } else {
-      setFilter(items);
-    }
-  }, [items]);
-  useEffect(() => {
-    if (!opora.length) {
-      fetchOpora();
-    } else {
-      setFilterOpora(opora);
-    }
-  }, [opora]);*/
   useEffect(() => {
     if (items.length || opora.length) {
       onSearch();

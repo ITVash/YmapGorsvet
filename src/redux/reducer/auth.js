@@ -1,15 +1,12 @@
 const initialState = {
-  items:[{
-    login: 'Vash',
-    email: 'vash_dn@mail.ru'
-  }],
-  logIn: true,
-  accessLevel: 5
+  items:[],
+  logIn: false,
+  accessLevel: null
 };
 
 export default (state = initialState, {type, payload}) => {
   switch (type) {
-    case 'GET_AUTH':
+    case 'AUTH_ME':
       return {
         ...state,
         items: payload,

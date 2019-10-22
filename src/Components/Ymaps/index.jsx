@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import { InfoBox, InfoOpora } from '../../Components';
+import md5 from 'md5';
 
 import './style.scss';
 
@@ -13,6 +14,7 @@ const Ymap = (props) => {
   const { coups, onSelectCoup, onSelectOpora, coupInfo, infoCoup, uppCoup , opora, uppOpora} = props;
   const [ setCoup, setSelectCoup ] = useState(null);
   const [ setOpora, setSelectOpora ] = useState(null);
+  console.log('md5', md5("dtkjcbgtl2909",{}));
   return (
     <YMaps onApiAvaliable={ymaps => console.log('Maps', ymaps)}>
       <Map defaultState={mapData} width="100%" height="100vh">

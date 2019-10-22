@@ -13,6 +13,11 @@ const actions = {
     type: 'ADD_OPORA',
     payload: items
   }),
+  /*getSelect: coup => (dispatch, getState) => {
+    const { opora } = getState();
+    const { items } = opora;
+    items.filter(item => {})
+  },*/
   getInfoCoup: opora => (dispatch, getState) => {
     const { coup } = getState();
     const { items } = coup;

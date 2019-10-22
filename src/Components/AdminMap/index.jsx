@@ -22,8 +22,7 @@ const AdminMap = props => {
         onClick={ e => {
           let coords = e.get('coords');
           let poson = {lat: coords[0], lng: coords[1]}
-          type === 'coup' ? editItems({...items, ID: coupID, pos: poson}) : editOpora({...opora, ID: oporaID, pos: poson})
-          setCoordinats({...coordinats, pos : poson})
+          type === 'coup' ? editItems({...items, ID: coupID, pos: poson}) : type === 'opora' ? editOpora({...opora, ID: oporaID, pos: poson}) : setCoordinats({...coordinats, pos : poson})
         } }
       >
         <SearchControl />
