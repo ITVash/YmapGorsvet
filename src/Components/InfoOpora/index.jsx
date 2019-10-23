@@ -20,7 +20,7 @@ const InfoOpora = (props) => {
 
   window.valuesOpora = props.items;
   window.editValuesOpora = props.editItems;
-  const { items, editItems, infoCoup, uppOpora, setCoup, coup, uppCoup } = props;
+  const { items, editItems, infoCoup, uppOpora, setCoup, coup, uppCoup, onSelectCoup } = props;
   const { title } = infoCoup;
   console.log('infoCoup', coup);
   return (
@@ -35,6 +35,7 @@ const InfoOpora = (props) => {
         <h3>{ items.title }</h3>
         <span> <span className="link-coup" onClick={ () => {
             setCoup(infoCoup);
+            onSelectCoup(infoCoup.ID);
             const InfoOpora = document.querySelector('.info-opora');
             const InfoO = document.querySelector('.info-box');
             coup && InfoO.classList.add("open");

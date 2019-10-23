@@ -75,6 +75,7 @@ const Ymap = (props) => {
             setCoup={ setSelectCoup }
             coup={ setCoup }
             uppCoup={ uppCoup }
+            onSelectCoup={ onSelectCoup }
           />
         )}
       </Map>

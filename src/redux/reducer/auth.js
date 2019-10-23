@@ -1,6 +1,6 @@
 const initialState = {
   items:[],
-  logIn: false,
+  logIn: true,
   accessLevel: null
 };
 

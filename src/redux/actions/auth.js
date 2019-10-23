@@ -6,7 +6,6 @@ const actions = {
     payload: data
   }),
   authMe: () => dispatch => {
-    debugger
     auth.authMe().then(({ data }) => {
       console.log('object', data)
       dispatch(actions.authData(data));
