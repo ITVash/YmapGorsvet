@@ -7,28 +7,21 @@ const initialState = {
 export default (state = initialState, {type, payload}) => {
   switch (type) {
     case 'AUTH_ME':
-        if (payload.status_code === 1) {
-          return {
-            ...state,
-            items: payload.data,
-            logIn: false
-          };
-        } if (payload.status_code === 0) {
-          return {
-            ...state,
-            items: payload.data,
-            logIn: true,
-            accessLevel: payload.data.access
-          };
-        }
-        break;
-        //return state;
-      /*return {
-        ...state,
-        items: payload,
-        logIn: true
-      };*/
-  
+      if (payload.status_code === 1) {
+        return {
+          ...state,
+          items: payload.data,
+          logIn: false
+        };
+      } else if (payload.status_code === 0) {
+        return {
+          ...state,
+          items: payload.data,
+          logIn: true,
+          accessLevel: payload.data.access
+        };
+      }
+      break;
     default:
       return state;
   }

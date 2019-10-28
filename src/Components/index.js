@@ -8,3 +8,4 @@ export { default as Main } from './Main';
 export { default as AdminMaps } from './AdminMap';
 export { default as AdminMenu } from './AdminMenu';
 export { default as Menu } from './Menu';
+export { default as LoginForm } from './LoginForm';
