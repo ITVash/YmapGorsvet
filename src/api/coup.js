@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from '../core';
 
 export default {
-  getAll: () => axios.get('/coup.json'),
+  getAll: () => axios.get('coup'),
 };

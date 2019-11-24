@@ -22,7 +22,7 @@ const actions = {
     const { coup } = getState();
     const { items } = coup;
     items.filter(item => {
-      if (item.ID === opora.coupID) {
+      if (item.id === opora.coupID) {
         dispatch({
           type: 'GET_COUP_INFO',
           payload: item

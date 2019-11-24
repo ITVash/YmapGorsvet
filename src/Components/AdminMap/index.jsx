@@ -22,12 +22,14 @@ const AdminMap = props => {
         onClick={ e => {
           let coords = e.get('coords');
           let poson = {lat: coords[0], lng: coords[1]}
-          type === 'coup' ? editItems({...items, ID: coupID, pos: poson}) : type === 'opora' ? editOpora({...opora, ID: oporaID, pos: poson}) : setCoordinats({...coordinats, pos : poson})
+          let lat =  coords[0];
+          let lng =  coords[1];
+          type === 'coup' ? editItems({...items, ID: coupID, lat: lat, lng: lng}) : type === 'opora' ? editOpora({...opora, ID: oporaID, lat: lat, lng: lng}) : setCoordinats({...coordinats, pos : poson})
         } }
       >
         <SearchControl />
         { !items.pos ? null :
-          <Placemark geometry={[items.pos.lat, items.pos.lng]}
+          <Placemark geometry={[items.lat, items.lng]}
             onClick={ () => {
               const Info = document.querySelector('.info-box');
               Info.classList.add("open");
@@ -41,7 +43,7 @@ const AdminMap = props => {
           />
         }
         { !opora.pos ? null :
-          <Placemark geometry={[opora.pos.lat, opora.pos.lng]}
+          <Placemark geometry={[opora.lat, opora.lng]}
             onClick={ () => {
               const InfoOpora = document.querySelector('.info-opora');
               InfoOpora.classList.add("open");

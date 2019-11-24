@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Icon } from 'antd';
 import { Link } from 'react-router-dom';
+import { auth } from '../../api';
 import './style.scss';
 
 const Menu = () => {
@@ -30,7 +31,13 @@ const Menu = () => {
         <Link to="/admin" ><Button>Редактор объектов</Button></Link>
         </div>
         <div className="menu-box__item">
-          <Button>Добавить пользователя</Button>
+          <Button onClick={ () => {
+            const data = {
+              login: "Vash2",
+              pass: "pass2"
+            };
+            auth.register(data);
+          }}>Добавить пользователя</Button>
         </div>
         <div className="menu-box__item">
           <Button>Пользователи</Button>

@@ -1,7 +1,7 @@
 const initialState = {
   items:[],
   logIn: true,
-  accessLevel: null
+  accessLevel: 5
 };
 
 export default (state = initialState, {type, payload}) => {

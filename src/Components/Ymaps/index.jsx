@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import { InfoBox, InfoOpora } from '../../Components';
+import React from 'react';
+import { YMaps, Map } from 'react-yandex-maps';
+//import { InfoBox, InfoOpora } from '../../Components';
 
 
 import './style.scss';
@@ -11,15 +11,17 @@ const mapData = {
   zoom: 12,
 };
 const Ymap = (props) => {
-  const { coups, onSelectCoup, onSelectOpora, coupInfo, infoCoup, uppCoup , opora, uppOpora} = props;
-  const [ setCoup, setSelectCoup ] = useState(null);
-  const [ setOpora, setSelectOpora ] = useState(null);
+  //const { coups, onSelectCoup, onSelectOpora, uppCoup , opora, uppOpora} = props;
+  //const [ setCoup, setSelectCoup ] = useState(null);
+  //const [ setOpora, setSelectOpora ] = useState(null);
   
   return (
-    <YMaps onApiAvaliable={ymaps => console.log('Maps', ymaps)}>
+    <YMaps>
       <Map defaultState={mapData} width="100%" height="100vh">
-        {coups.map(item => <Placemark key={item.ID} geometry={[item.pos.lat, item.pos.lng]} 
-          onClick={() => {setSelectCoup(item); onSelectCoup(item.ID); 
+        {/*coups.map(item => <Placemark key={item.id} geometry={[item.lat, item.lng]} 
+          onClick={ () => {
+            setSelectCoup(item); 
+            onSelectCoup(item.id); 
             const Info = document.querySelector('.info-box');
             Info.classList.add("open");
           }}
@@ -38,14 +40,18 @@ const Ymap = (props) => {
             // to its "tail" (the anchor point).
             iconImageOffset: [0, 0],
           }}
-        />)}
-        {opora.map(item => <Placemark key={item.ID} geometry={[item.pos.lat, item.pos.lng]}
+        />)*/}
+        {/*opora.map(item => <Placemark key={item.id} geometry={[item.lat, item.lng]}
           onClick={ () => {
             setSelectOpora(item);
-            coupInfo(item);
-            onSelectOpora(item.ID);
+            //coupInfo(item);
+            onSelectOpora(item.id);
             const InfoOpora = document.querySelector('.info-opora');
             InfoOpora.classList.add("open");
+          }}
+          modules={['geoObject.addon.hint']}
+          properties={{
+            hintContent: `${item.title}`,
           }}
           options={{
             // Options. You must specify this type of layout.
@@ -59,14 +65,14 @@ const Ymap = (props) => {
             iconImageOffset: [0, -15],
           }}
         />
-        )}
-        {setCoup && (
+        )*/}
+        {/*setCoup && (
           <InfoBox
             items={ setCoup }
             editItems={ setSelectCoup }
             uppCoup={ uppCoup } />
-        )}
-        {setOpora && (
+        )*/}
+        {/*setOpora && (
           <InfoOpora 
             items={ setOpora }
             editItems={ setSelectOpora }
@@ -77,10 +83,10 @@ const Ymap = (props) => {
             uppCoup={ uppCoup }
             onSelectCoup={ onSelectCoup }
           />
-        )}
+        )*/}
       </Map>
     </YMaps>
   )
 }
 
-export default Ymap
+export default Ymap;

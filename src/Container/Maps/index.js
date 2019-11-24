@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { coupActions, oporaActions } from '../../redux/actions';
+import React from 'react';
+//import { connect } from 'react-redux';
+//import { coupActions, oporaActions } from '../../redux/actions';
 import { YMaps, SearchBox } from '../../Components';
 import { Menu } from '../../Container'
-
-const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCoup, getUppCoup, opora, fetchOpora, uppOpora }) => {
-  const [ searchValue, setSearchValue ] = useState('');
+//{ fetchCoup, items, getCurrentID, getOporaID, getUppCoup, opora, fetchOpora, uppOpora }
+const Maps = props => {
+  /*const [ searchValue, setSearchValue ] = useState('');
   const [ filter, setFilter ] = useState(Array.from(items));
   const [ filterOpora, setFilterOpora ] = useState(Array.from(opora));
   const onSearch = (value = '') =>{
@@ -21,25 +21,24 @@ const Maps = ({ fetchCoup, items, getCurrentID, getOporaID, getInfoCoup, infoCou
   useEffect(() => {
     fetchCoup();
     fetchOpora();
-  }, [fetchCoup, fetchOpora])
+  }, [fetchCoup, fetchOpora]);*/
   return (
     <>
       <SearchBox 
-        onSearch={ onSearch } 
-        SearchValue={ searchValue }
+        /*onSearch={ onSearch } 
+        SearchValue={ searchValue }*/
       />
       <Menu />
       <YMaps
-        coups={ filter }
+        /*coups={ filter }
         opora={ filterOpora }
-        coupInfo={ getInfoCoup }
-        infoCoup= { infoCoup }
         onSelectOpora={ getOporaID }
         onSelectCoup={ getCurrentID }
         uppCoup={ getUppCoup }
-        uppOpora={ uppOpora }
+        uppOpora={ uppOpora }*/
       />
     </>
   )
 }
-export default connect(({coup, opora}) => ({items: coup.items, opora: opora.items, infoCoup: opora.infoCoup}), {...coupActions, ...oporaActions})(Maps);
+//connect(({coup, opora}) => ({ items: coup.items, opora: opora.items }), {...coupActions, ...oporaActions})(Maps)
+export default Maps;

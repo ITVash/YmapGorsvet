@@ -34,7 +34,7 @@ export default ( state = initialState, { type, payload } ) => {
         return {
           ...state,
           items: state.items.filter(item => {
-            if (item.ID === state.currentID) {
+            if (item.id === state.currentID) {
               return Object.assign(item, payload)
             }
             return item;
